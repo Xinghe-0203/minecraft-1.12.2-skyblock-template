@@ -1,0 +1,19 @@
+Main:
+  NoPermission: '&c你没有权限执行此操作！'
+  AlreadyBought: '&c你已经购买过该商品了！'
+  ShopNotExisting: '&c该商店不存在...'
+  OpenShop: ''
+  OpenShopOtherPlayer: '&6正在为玩家 %displayname% &6打开商店 &c%shop%&6。'
+  CloseShop: ''
+  CloseShopOtherPlayer: '&6已关闭玩家 %displayname% &6的界面。'
+  PlayerNotFound: '&c找不到玩家 %name%！'
+PlayerNotFound: '&c找不到玩家 %name%！'
+Economy:
+  NoAccount: '&c你还没有经济账户！'
+NotEnough:
+  Money: '&c你的金钱不足！'
+  Item: '&c你持有的物品不足！'
+  Points: '&c你的点数不足！'
+  Exp: '&c你的经验值不足！'
+Enchantment:
+  Invalid: '&c该物品无法添加此附魔！'

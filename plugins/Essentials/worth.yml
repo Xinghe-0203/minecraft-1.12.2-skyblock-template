@@ -1,0 +1,11 @@
+# Essentials 价值表 - 已清理，仅保留星空商店回收项目
+worth:
+  # 1.12.2 物品 ID 对应名称
+  cobblestone: 1.0
+  wheat: 1.5
+  slimeball: 15.0
+  ghasttear: 15.0
+  pumpkin: 0.6
+  melonblock: 0.6
+  carrotitem: 1.0
+  potatoitem: 1.0

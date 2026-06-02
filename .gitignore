@@ -1,0 +1,43 @@
+# 世界数据（用户需自行生成）
+world/region/
+world/data/
+world/advancements/
+world_nether/
+world_the_end/
+
+# 日志
+logs/
+*.log
+plugins/QuickShop/qs.log
+plugins/BossShop/BugFinder.yml
+
+# 运行时数据
+usercache.json
+session.lock
+uid.dat
+world/session.lock
+world/uid.dat
+plugins/LuckPerms/libs/
+plugins/LuckPerms/cache/
+plugins/QuickShop/shops.db
+plugins/Essentials/userdata/
+plugins/Essentials/cache/
+
+# 封禁/OP 列表（用户自行配置）
+banned-ips.json
+banned-players.json
+ops.json
+whitelist.json
+
+# 服务器图标（可自定义）
+server-icon.png
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+*.iml
+.vscode/

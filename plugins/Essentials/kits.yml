@@ -1,0 +1,43 @@
+kits:
+  tools:
+    delay: 10
+    items:
+    - stone_sword 1
+    - stone_shovel 1
+    - stone_pickaxe 1
+    - stone_axe 1
+  dtools:
+    delay: 600
+    items:
+    - diamond_pickaxe 1 efficiency:1 unbreaking:1 fortune:1 name:&4超级钻头 lore:贯穿|天地的钻头
+    - diamond_shovel 1 efficiency:3 name:&b矮人 lore:挖呀|挖呀|挖
+    - leather_helmet 1 color:255,255,255 name:&f礼帽 lore:日安,_日安
+    - diamond_axe 1
+    - /broadcast {USERNAME} 获得了一套炫酷工具！
+  notch:
+    delay: 6000
+    items:
+    - playerhead 1 player:Notch
+  color:
+    delay: 6000
+    items:
+    - writtenbook 1 title:&4颜色&9之&6书 author:KHobbits lore:游戏内颜色代码
+      book:Colors
+  firework:
+    delay: 6000
+    items:
+    - fireworkrocket 1 name:愤怒苦力怕 color:red fade:green type:creeper power:1
+    - fireworkrocket 1 name:星夜 color:yellow,orange fade:blue type:star effect:trail,twinkle
+      power:1
+    - fireworkrocket 2 name:太阳风 color:yellow,orange fade:red shape:large effect:twinkle
+      color:yellow,orange fade:red shape:ball effect:trail color:red,purple fade:pink
+      shape:star effect:trail power:1
+  newbie:
+    delay: 600
+    items:
+    - diamond_pickaxe 1 efficiency:1 unbreaking:1 fortune:1 name:&4超级钻头 lore:贯穿|天地的钻头
+    - diamond_shovel 1 efficiency:5 name:&b矮人 lore:挖呀|挖呀|挖
+    - leather_helmet 1 color:255,255,255 name:&f礼帽 lore:日安,_日安
+    - diamond_axe 1
+    - cooked_beef 32
+    - /broadcast {USERNAME} 获得了一套炫酷工具！

@@ -1,0 +1,442 @@
+ShopName: SkyBlockShop
+DisplayName: '&9&l星空物资商店'
+shop_size: 6
+Command: shop
+shop:
+  # ==============================
+  #         购买区 (1-20)
+  # ==============================
+  'Lava_1':
+    RewardType: item
+    Reward:
+    - - type:LAVA_BUCKET
+      - amount:1
+    PriceType: money
+    Price: 100
+    MenuItem:
+    - type:LAVA_BUCKET
+    - 'name:&b&l购买岩浆桶 &7(x1)'
+    - 'lore:&e价格: 100 星币'
+    InventoryLocation: 1
+  'Lava_64':
+    RewardType: item
+    Reward:
+    - - type:LAVA_BUCKET
+      - amount:64
+    PriceType: money
+    Price: 6400
+    MenuItem:
+    - type:LAVA_BUCKET
+    - 'name:&b&l购买岩浆桶 &7(x64)'
+    - 'lore:&e价格: 6400 星币'
+    InventoryLocation: 2
+
+  'Iron_1':
+    RewardType: item
+    Reward:
+    - - type:IRON_INGOT
+      - amount:1
+    PriceType: money
+    Price: 15
+    MenuItem:
+    - type:IRON_INGOT
+    - 'name:&b&l购买铁锭 &7(x1)'
+    InventoryLocation: 3
+  'Iron_64':
+    RewardType: item
+    Reward:
+    - - type:IRON_INGOT
+      - amount:64
+    PriceType: money
+    Price: 960
+    MenuItem:
+    - type:IRON_INGOT
+    - 'name:&b&l购买铁锭 &7(x64)'
+    InventoryLocation: 4
+
+  'Gold_1':
+    RewardType: item
+    Reward:
+    - - type:GOLD_INGOT
+      - amount:1
+    PriceType: money
+    Price: 25
+    MenuItem:
+    - type:GOLD_INGOT
+    - 'name:&b&l购买金锭 &7(x1)'
+    InventoryLocation: 5
+  'Gold_64':
+    RewardType: item
+    Reward:
+    - - type:GOLD_INGOT
+      - amount:64
+    PriceType: money
+    Price: 1600
+    MenuItem:
+    - type:GOLD_INGOT
+    - 'name:&b&l购买金锭 &7(x64)'
+    InventoryLocation: 6
+
+  'Diamond_1':
+    RewardType: item
+    Reward:
+    - - type:DIAMOND
+      - amount:1
+    PriceType: money
+    Price: 100
+    MenuItem:
+    - type:DIAMOND
+    - 'name:&b&l购买钻石 &7(x1)'
+    InventoryLocation: 7
+  'Diamond_64':
+    RewardType: item
+    Reward:
+    - - type:DIAMOND
+      - amount:64
+    PriceType: money
+    Price: 6400
+    MenuItem:
+    - type:DIAMOND
+    - 'name:&b&l购买钻石 &7(x64)'
+    InventoryLocation: 8
+
+  'Redstone_1':
+    RewardType: item
+    Reward:
+    - - type:REDSTONE
+      - amount:1
+    PriceType: money
+    Price: 5
+    MenuItem:
+    - type:REDSTONE
+    - 'name:&b&l购买红石粉 &7(x1)'
+    InventoryLocation: 10
+  'Redstone_64':
+    RewardType: item
+    Reward:
+    - - type:REDSTONE
+      - amount:64
+    PriceType: money
+    Price: 320
+    MenuItem:
+    - type:REDSTONE
+    - 'name:&b&l购买红石粉 &7(x64)'
+    InventoryLocation: 11
+
+  'Sand_1':
+    RewardType: item
+    Reward:
+    - - type:SAND
+      - amount:1
+    PriceType: money
+    Price: 5
+    MenuItem:
+    - type:SAND
+    - 'name:&b&l购买沙子 &7(x1)'
+    InventoryLocation: 12
+  'Sand_64':
+    RewardType: item
+    Reward:
+    - - type:SAND
+      - amount:64
+    PriceType: money
+    Price: 320
+    MenuItem:
+    - type:SAND
+    - 'name:&b&l购买沙子 &7(x64)'
+    InventoryLocation: 13
+
+  'SeaLantern_1':
+    RewardType: item
+    Reward:
+    - - type:SEA_LANTERN
+      - amount:1
+    PriceType: money
+    Price: 100
+    MenuItem:
+    - type:SEA_LANTERN
+    - 'name:&b&l购买海晶灯 &7(x1)'
+    InventoryLocation: 14
+  'SeaLantern_64':
+    RewardType: item
+    Reward:
+    - - type:SEA_LANTERN
+      - amount:64
+    PriceType: money
+    Price: 6400
+    MenuItem:
+    - type:SEA_LANTERN
+    - 'name:&b&l购买海晶灯 &7(x64)'
+    InventoryLocation: 15
+
+  'Sapling_1':
+    RewardType: item
+    Reward:
+    - - type:SAPLING
+      - amount:1
+    PriceType: money
+    Price: 10
+    MenuItem:
+    - type:SAPLING
+    - 'name:&b&l购买橡树树苗 &7(x1)'
+    InventoryLocation: 16
+  'Sapling_64':
+    RewardType: item
+    Reward:
+    - - type:SAPLING
+      - amount:64
+    PriceType: money
+    Price: 640
+    MenuItem:
+    - type:SAPLING
+    - 'name:&b&l购买橡树树苗 &7(x64)'
+    InventoryLocation: 17
+
+  'Coal_1':
+    RewardType: item
+    Reward:
+    - - type:COAL
+      - amount:1
+    PriceType: money
+    Price: 5
+    MenuItem:
+    - type:COAL
+    - 'name:&b&l购买煤炭 &7(x1)'
+    InventoryLocation: 18
+  'Coal_64':
+    RewardType: item
+    Reward:
+    - - type:COAL
+      - amount:64
+    PriceType: money
+    Price: 320
+    MenuItem:
+    - type:COAL
+    - 'name:&b&l购买煤炭 &7(x64)'
+    InventoryLocation: 19
+
+  'Steak_1':
+    RewardType: item
+    Reward:
+    - - type:COOKED_BEEF
+      - amount:1
+    PriceType: money
+    Price: 5
+    MenuItem:
+    - type:COOKED_BEEF
+    - 'name:&6&l购买熟牛排 &7(x1)'
+    InventoryLocation: 9
+  'Steak_64':
+    RewardType: item
+    Reward:
+    - - type:COOKED_BEEF
+      - amount:64
+    PriceType: money
+    Price: 320
+    MenuItem:
+    - type:COOKED_BEEF
+    - 'name:&6&l购买熟牛排 &7(x64)'
+    InventoryLocation: 20
+
+  # ==============================
+  #         回收区 (28-44)
+  # ==============================
+  'SellCobble_1':
+    RewardType: money
+    Reward: 1
+    PriceType: item
+    Price:
+    - - type:COBBLESTONE
+      - amount:1
+    MenuItem:
+    - type:COBBLESTONE
+    - 'name:&a&l出售圆石 &7(x1)'
+    - 'lore:&e价格: 1 星币'
+    InventoryLocation: 28
+  'SellCobble_64':
+    RewardType: money
+    Reward: 64
+    PriceType: item
+    Price:
+    - - type:COBBLESTONE
+      - amount:64
+    MenuItem:
+    - type:COBBLESTONE
+    - 'name:&a&l出售圆石 &7(x64)'
+    - 'lore:&e价格: 64 星币'
+    InventoryLocation: 29
+
+  'SellWheat_1':
+    RewardType: money
+    Reward: 1.5
+    PriceType: item
+    Price:
+    - - type:WHEAT
+      - amount:1
+    MenuItem:
+    - type:WHEAT
+    - 'name:&a&l出售小麦 &7(x1)'
+    InventoryLocation: 30
+  'SellWheat_64':
+    RewardType: money
+    Reward: 96
+    PriceType: item
+    Price:
+    - - type:WHEAT
+      - amount:64
+    MenuItem:
+    - type:WHEAT
+    - 'name:&a&l出售小麦 &7(x64)'
+    InventoryLocation: 31
+
+  'SellSlime_1':
+    RewardType: money
+    Reward: 15
+    PriceType: item
+    Price:
+    - - type:SLIME_BALL
+      - amount:1
+    MenuItem:
+    - type:SLIME_BALL
+    - 'name:&a&l出售粘液球 &7(x1)'
+    InventoryLocation: 32
+  'SellSlime_64':
+    RewardType: money
+    Reward: 960
+    PriceType: item
+    Price:
+    - - type:SLIME_BALL
+      - amount:64
+    MenuItem:
+    - type:SLIME_BALL
+    - 'name:&a&l出售粘液球 &7(x64)'
+    InventoryLocation: 33
+
+  'SellTear_1':
+    RewardType: money
+    Reward: 15
+    PriceType: item
+    Price:
+    - - type:GHAST_TEAR
+      - amount:1
+    MenuItem:
+    - type:GHAST_TEAR
+    - 'name:&a&l出售恶魂之泪 &7(x1)'
+    InventoryLocation: 34
+  'SellTear_64':
+    RewardType: money
+    Reward: 960
+    PriceType: item
+    Price:
+    - - type:GHAST_TEAR
+      - amount:64
+    MenuItem:
+    - type:GHAST_TEAR
+    - 'name:&a&l出售恶魂之泪 &7(x64)'
+    InventoryLocation: 35
+
+  'SellPumpkin_1':
+    RewardType: money
+    Reward: 0.6
+    PriceType: item
+    Price:
+    - - type:PUMPKIN
+      - amount:1
+    MenuItem:
+    - type:PUMPKIN
+    - 'name:&a&l出售南瓜 &7(x1)'
+    InventoryLocation: 37
+  'SellPumpkin_64':
+    RewardType: money
+    Reward: 38.4
+    PriceType: item
+    Price:
+    - - type:PUMPKIN
+      - amount:64
+    MenuItem:
+    - type:PUMPKIN
+    - 'name:&a&l出售南瓜 &7(x64)'
+    InventoryLocation: 38
+
+  'SellMelon_1':
+    RewardType: money
+    Reward: 0.6
+    PriceType: item
+    Price:
+    - - type:MELON_BLOCK
+      - amount:1
+    MenuItem:
+    - type:MELON_BLOCK
+    - 'name:&a&l出售西瓜块 &7(x1)'
+    InventoryLocation: 39
+  'SellMelon_64':
+    RewardType: money
+    Reward: 38.4
+    PriceType: item
+    Price:
+    - - type:MELON_BLOCK
+      - amount:64
+    MenuItem:
+    - type:MELON_BLOCK
+    - 'name:&a&l出售西瓜块 &7(x64)'
+    InventoryLocation: 40
+
+  'SellCarrot_1':
+    RewardType: money
+    Reward: 1
+    PriceType: item
+    Price:
+    - - type:CARROT_ITEM
+      - amount:1
+    MenuItem:
+    - type:CARROT_ITEM
+    - 'name:&a&l出售胡萝卜 &7(x1)'
+    InventoryLocation: 41
+  'SellCarrot_64':
+    RewardType: money
+    Reward: 64
+    PriceType: item
+    Price:
+    - - type:CARROT_ITEM
+      - amount:64
+    MenuItem:
+    - type:CARROT_ITEM
+    - 'name:&a&l出售胡萝卜 &7(x64)'
+    InventoryLocation: 42
+
+  'SellPotato_1':
+    RewardType: money
+    Reward: 1
+    PriceType: item
+    Price:
+    - - type:POTATO_ITEM
+      - amount:1
+    MenuItem:
+    - type:POTATO_ITEM
+    - 'name:&a&l出售马铃薯 &7(x1)'
+    InventoryLocation: 43
+  'SellPotato_64':
+    RewardType: money
+    Reward: 64
+    PriceType: item
+    Price:
+    - - type:POTATO_ITEM
+      - amount:64
+    MenuItem:
+    - type:POTATO_ITEM
+    - 'name:&a&l出售马铃薯 &7(x64)'
+    InventoryLocation: 44
+
+  # ==============================
+  #         功能区 (54)
+  # ==============================
+  'SellAllItems':
+    RewardType: playercommand
+    Reward:
+    - 'sell all'
+    PriceType: nothing
+    MenuItem:
+    - type:GOLD_BLOCK
+    - 'name:&6&l一键出售全部物资'
+    - 'lore:&7点击执行 /sell all'
+    InventoryLocation: 54

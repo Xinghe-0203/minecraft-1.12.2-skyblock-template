@@ -1,0 +1,136 @@
+############################################################
+# +------------------------------------------------------+ #
+# |                星空岛 EssentialsX 最终修复版           | #
+# +------------------------------------------------------+ #
+############################################################
+
+# --- 基础设置 ---
+ops-name-color: '4'
+nickname-prefix: '~'
+max-nick-length: 15
+change-displayname: true
+hide-offline-players: false
+
+# --- 传送设置 ---
+teleport-safety: true
+teleport-cooldown: 1
+teleport-delay: 1
+teleport-invulnerability: 4
+teleport-to-center: true
+world-teleport-permissions: false
+teleport-passenger-riding: true
+# 新增：死后可直接/back回到死亡点
+teleport-back-on-death: true
+teleport-death-location: false
+
+# --- 家系统（新增，支持玩家设置多个家） ---
+sethome-multiple:
+  # 普通玩家10个家，权限节点：essentials.sethome.multiple.players
+  players: 10
+  # 如需VIP/管理员组可自行添加：
+  # vip: 20
+  # staff: 30
+
+# --- 经济设置 ---
+currency-symbol: '星币'
+# 修复：符号放后面，显示为“100星币”
+currency-symbol-before: false
+starting-balance: 500
+# max-money: 999999999999999999999999999999999999999999999
+# min-money: 0
+# allow-negative-balance: false
+
+# --- 礼包系统 ---
+# newbie 礼包已移至 kits.yml 统一管理
+
+# --- 新玩家与进服设置 ---
+newbies:
+  announce-format: '&b&l[星空岛] &f欢迎新居民 &e{DISPLAYNAME} &f降临！'
+  kit: 'newbie'
+  spawnpoint: 'spawn'
+  # 修复：只给指定的新生礼包，防止错误发放所有礼包
+  get-all-kits: false
+
+# --- 聊天格式 ---
+chat:
+  format: '{DISPLAYNAME}&r&f: {MESSAGE}'
+  group-formats:
+    default: '{DISPLAYNAME}&r&f: {MESSAGE}'
+    admin: '&4[管理员] &r{DISPLAYNAME}&r&f: {MESSAGE}'
+  world-format: '[{WORLDNAME}] {DISPLAYNAME}: {MESSAGE}'
+  use-permissions-prefix: true
+  use-permissions-suffix: true
+
+# --- 世界规则 ---
+world:
+  enabled: true
+  defaults:
+    spawn-animals: true
+    spawn-monsters: true
+    pvp: true
+    allow-sleep: true
+    tnt-explosion: true
+    # 苦力怕造成伤害，但不破坏地形（配合protect）
+    creeper-explosion: true
+    fire-spread: true
+    lava-fire-spread: true
+    hunger: true
+    weather: true
+    item-drop: true
+    item-pickup: true
+    tree-growth: true
+
+# --- 保护设置 ---
+protect:
+  prevent:
+    spawn:
+      zombie: false
+      skeleton: false
+      creeper: false
+      spider: false
+      witch: false
+      enderman: false
+      slime: false
+      ghast: false
+      blaze: false
+      pigman: false
+      villager: false
+      golem: false
+    item-spawn: []
+    placement: []
+    usage: []
+    interact: []
+    fire-spread: false
+    lava-fire-spread: false
+    # true = 保护地形，防止苦力怕炸坏方块
+    creeper-explosion: true
+    tnt-explosion: false
+    lighter: false
+    fireball-explosion: false
+    wither-explosion: false
+    dragon: true
+    iron-golem: false
+
+# --- 邮件系统 ---
+mail:
+  max-storage: 100
+  show-sender: true
+  allow-offline-mail: true
+
+# --- 安全与反作弊 ---
+safety:
+  cancel-teleport-on-damage: true
+  cancel-logout-on-damage: true
+  speed-check: false
+
+# --- 杂项 ---
+# 掉落物清理时间改为20分钟（避免误清）
+auto-item-clean: 1200
+allow-colors: true
+backup:
+  enabled: false
+  interval: 1440
+  command: 'tar -czf backup.tar.gz world'
+
+# --- 语言设置 ---
+locale: zh_CN

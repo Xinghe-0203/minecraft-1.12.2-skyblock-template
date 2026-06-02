@@ -1,0 +1,97 @@
+name: default
+display-name: '&7默认'
+weight: 0
+permissions:
+  # ========== 基础 ==========
+  - essentials.build
+  - essentials.chat.color
+  - essentials.chat.shout
+  - essentials.chat.question
+
+  # ========== 传送 ==========
+  - essentials.spawn
+  - essentials.tpa
+  - essentials.tpahere
+  - essentials.tpaccept
+  - essentials.tpdeny
+  - essentials.back
+  - essentials.back.ondeath
+  - essentials.top
+  - essentials.tpr
+
+  # ========== 家 ==========
+  - essentials.sethome
+  - essentials.sethome.multiple
+  - essentials.sethome.multiple.players
+  - essentials.home
+  - essentials.delhome
+  - essentials.homes
+
+  # ========== 传送点 ==========
+  - essentials.warp
+  - essentials.warps
+  - essentials.warp.list
+
+  # ========== 经济 ==========
+  - essentials.balance
+  - essentials.balancetop
+  - essentials.pay
+  - essentials.worth
+  - essentials.sell
+
+  # ========== 礼包 ==========
+  - essentials.kit
+  - essentials.kits
+
+  # ========== 聊天与社交 ==========
+  - essentials.msg
+  - essentials.r
+  - essentials.mail
+  - essentials.mail.send
+  - essentials.mail.read
+  - essentials.mail.clear
+  - essentials.ignore
+
+  # ========== 信息 ==========
+  - essentials.list
+  - essentials.who
+  - essentials.getpos
+  - essentials.compass
+  - essentials.depth
+  - essentials.ping
+  - essentials.motd
+  - essentials.rules
+  - essentials.info
+  - essentials.help
+  - essentials.whoami
+  - essentials.seen
+  - essentials.realname
+
+  # ========== 实用 ==========
+  - essentials.suicide
+  - essentials.afk
+  - essentials.near
+  - essentials.tpaccept
+  - essentials.tpdeny
+
+  # ========== 昵称 ==========
+  - essentials.nick
+
+  # ========== BossShop ==========
+  - bossshop.player
+
+  # ========== QuickShop ==========
+  - quickshop.shop.create
+  - quickshop.shop.buy
+  - quickshop.shop.sell
+  - quickshop.shop.changeprice
+  - quickshop.shop.find
+  - quickshop.shop.info
+  - quickshop.shop.setowner
+
+  # ========== 原版命令 ==========
+  - minecraft.command.tell
+  - minecraft.command.me
+  - minecraft.command.list
+  - minecraft.command.seed
+  - minecraft.command.help

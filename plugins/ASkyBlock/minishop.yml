@@ -1,0 +1,64 @@
+# ASkyBlock MiniShop - 只用于买东西 + 单个卖（一键卖用 /sell 命令）
+config:
+  allowselling: true
+
+items:
+  # 系统出售（玩家买）
+  lava:
+    material: LAVA_BUCKET
+    quantity: 1
+    price: 100
+    description: '&c岩浆桶 &f(买价 100元)'
+  iron:
+    material: IRON_INGOT
+    quantity: 1
+    price: 15
+    description: '&f铁锭 &f(买价 15元)'
+  gold:
+    material: GOLD_INGOT
+    quantity: 1
+    price: 25
+    description: '&e金锭 &f(买价 25元)'
+  diamond:
+    material: DIAMOND
+    quantity: 1
+    price: 100
+    description: '&b钻石 &f(买价 100元)'
+  redstone:
+    material: REDSTONE
+    quantity: 1
+    price: 5
+    description: '&c红石 &f(买价 5元)'
+  sand:
+    material: SAND
+    quantity: 1
+    price: 5
+    description: '&e沙子 &f(买价 5元)'
+  prismarine:
+    material: PRISMARINE_CRYSTALS
+    quantity: 1
+    price: 40
+    description: '&b海晶碎片 &f(买价 40元)'
+  sapling:
+    material: SAPLING
+    quantity: 1
+    price: 10
+    description: '&a树苗 &f(买价 10元)'
+  coal:
+    material: COAL
+    quantity: 1
+    price: 5
+    description: '&8煤炭 &f(买价 5元)'
+
+  # 系统收购（玩家单个右键卖）
+  sell_cobble:
+    material: COBBLESTONE
+    quantity: 1
+    sellprice: 1
+    description: '&7原石 &f(卖价 1元)'
+  sell_wheat:
+    material: WHEAT
+    quantity: 1
+    sellprice: 1.5
+    description: '&e小麦 &f(卖价 1.5元)'
+  # ... 其他收购物品同理

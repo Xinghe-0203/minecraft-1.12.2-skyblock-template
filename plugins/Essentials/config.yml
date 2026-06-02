@@ -15,7 +15,7 @@ hide-offline-players: false
 teleport-safety: true
 teleport-cooldown: 1
 teleport-delay: 1
-teleport-invulnerability: 4
+teleport-invulnerability: 2
 teleport-to-center: true
 world-teleport-permissions: false
 teleport-passenger-riding: true
@@ -24,24 +24,23 @@ teleport-back-on-death: true
 teleport-death-location: false
 
 # --- 家系统（新增，支持玩家设置多个家） ---
+# 通过 LuckPerms 权限节点控制每个组可设家数量：
+#   default 组: essentials.sethome.multiple.players = 10
+#   vip 组:    essentials.sethome.multiple.vip = 20
+#   staff 组:  essentials.sethome.multiple.staff = 30
 sethome-multiple:
-  # 普通玩家10个家，权限节点：essentials.sethome.multiple.players
-  players: 10
-  # 如需VIP/管理员组可自行添加：
-  # vip: 20
-  # staff: 30
+  default: 10
+  vip: 20
+  staff: 30
 
 # --- 经济设置 ---
-currency-symbol: '星币'
-# 修复：符号放后面，显示为“100星币”
+# 货币符号前加空格，避免显示拥挤（如 "500 星币"）
+currency-symbol: ' 星币'
 currency-symbol-before: false
 starting-balance: 500
 # max-money: 999999999999999999999999999999999999999999999
 # min-money: 0
 # allow-negative-balance: false
-
-# --- 礼包系统 ---
-# newbie 礼包已移至 kits.yml 统一管理
 
 # --- 新玩家与进服设置 ---
 newbies:
@@ -124,13 +123,13 @@ safety:
   speed-check: false
 
 # --- 杂项 ---
-# 掉落物清理时间改为20分钟（避免误清）
+# 掉落物清理时间改为20分钟（避免误清），单位为秒
 auto-item-clean: 1200
 allow-colors: true
-backup:
-  enabled: false
-  interval: 1440
-  command: 'tar -czf backup.tar.gz world'
-
 # --- 语言设置 ---
 locale: zh_CN
+# --- 备份设置 ---
+backup:
+  enabled: true
+  interval: 1440
+  command: 'tar -czf backup.tar.gz world'

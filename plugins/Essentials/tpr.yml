@@ -1,6 +1,16 @@
-# Configuration for the random teleport command.
-# Some settings may be defaulted, and can be changed via the /settpr command in-game.
-min-range: 0.0
+# 随机传送 (/tpr) 配置
+# 通过 /settpr 命令可在游戏中临时修改以下设置
+# min-range: 距中心点的最小随机距离（方块）
+# max-range: 距中心点的最大随机距离（方块）
+# cooldown: 冷却时间（秒），防止玩家连续刷传送
+# warmup: 暖身时间（秒），传送前等待
+# center: 传送中心点（设为 spawn 表示以主城为中心）
+cooldown: 30
+warmup: 3
+min-range: 500
+max-range: 5000
+center: spawn
+# 排除的生物群系（不传送到海洋/河流）
 excluded-biomes:
   - cold_ocean
   - deep_cold_ocean

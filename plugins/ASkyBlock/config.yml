@@ -1,0 +1,943 @@
+#############################################################################
+# ASkyBlock V3.0.9.4 配置文件
+# 维护者: tastybento
+# 建议至少检查以下设置：
+#
+# 1. island distance - 岛屿间距。如果升级服务器，必须使用旧值，否则必须重置世界。
+# 2. resetmoney (general 部分) - 设为 true 可以让所有玩家初始金钱为0。
+# 3. islandLevel (general 部分) - 岛屿浮空的高度。
+# 4. protectionRange - 初始岛屿的保护范围。
+#
+##############################################################################
+
+##### 岛屿相关设置 #####
+
+island:
+  # 岛屿间距（方块数）- 游戏中途切勿更改。
+  # 新世界推荐值：
+  # 400 - 玩家通常看不见彼此
+  # 200 - 允许一定扩展（推荐）
+  # 110 - 兼容已建成的世界，比较紧凑
+  # 50 - 最小值，不推荐
+  # 如果你正在升级服务器，必须使用旧值（例如 110），否则重置世界。
+  # 该值必须为偶数
+  distance: 200
+
+  # 默认保护范围（偶数）。最小值 = 0，推荐值 = 100
+  # 数值越大，计算岛屿等级耗时越长
+  # 管理员可使用 /asadmin setrange 或权限 askyblock.island.range.<number> 单独调整玩家保护范围
+  # 为获得最佳性能，保护范围应至少比岛屿间距小 16 格。
+  protectionRange: 100
+
+  # 新岛屿起始坐标。新岛屿将围绕此坐标生成，必须与岛屿间距成倍数，插件会自动计算最近的网格点。
+  # 如果不懂，保持 0,0 即可。
+  startx: 0
+  startz: 0
+
+  # 海平面高度（中途勿改，除非删除世界）
+  # 最小值 0，即空岛模式！
+  # 如果海平面低于 10，玩家会直接掉下去。这可以作为一种特殊的空岛变体。
+  sealevel: 0
+
+  # 岛屿生成高度。
+  # 最低 5
+  islandlevel: 120
+
+  # 玩家允许的重置次数（/asadmin clearreset <player> 可重置次数）
+  # -1 表示无限，0 表示硬核模式（不允许重置）
+  # 例如 2 次重置意味着玩家总共可以拥有 3 个岛屿（包含初始）
+  resetlimit: 3
+
+  # 重置岛屿后需要等待的秒数
+  resetwait: 300
+
+  # 重置确认等待秒数
+  resetconfirmwait: 10
+
+  # 被踢出队伍后，玩家必须等待多少分钟才能重新加入队伍（防止反复加入完成挑战）
+  invitewait: 60
+
+  # 邀请超时秒数，未在此时间内接受则失效
+  invitetimeout: 60
+
+  # 默认队伍最大人数
+  # 可使用权限 askyblock.team.maxsize.<number> 为特定用户组设置
+  # 权限设置的值不能小于此默认值
+  maxteamsize: 10
+
+  # 岛屿等级计算冷却时间（秒）
+  levelwait: 60
+
+  # 玩家初始岛屿箱子中的物品
+  # 格式：<材料>:<数量> 或 <材料>:<数据值>:<数量>
+  # 数据值用于设定物品耐久或子物品/颜色。
+  # 刷怪蛋必须使用名称定义，如 MONSTER_EGG:PIG
+  # 药水格式：POTION:名称:<等级>:<延长>:<喷溅/滞留>:数量（等级、延长、喷溅/滞留可选）
+  # 示例：POTION:STRENGTH:1:EXTENDED:SPLASH:1
+  # 可用药水名称：WATER, REGEN, SPEED, FIRE_RESISTANCE, POISON, INSTANT_HEAL, NIGHT_VISION, WEAKNESS, STRENGTH, SLOWNESS, JUMP, INSTANT_DAMAGE, WATER_BREATHING, INVISIBILITY, LUCK, MUNDANE, THICK, AWKWARD (1.9+)
+  # 加载配置后请检查控制台错误提示。
+  # 岛屿模板（schematics）可覆盖此项。
+  chestItems: 'ICE:2 MELON:1 TORCH:16 BONE:5 LAVA_BUCKET:1 PUMPKIN_SEEDS:1 SUGAR_CANE:1 RED_MUSHROOM:1 BROWN_MUSHROOM:1 CACTUS:1 BREAD:5 WHEAT:5'
+
+  # 默认岛屿伙伴。可在 schematicsection 中设置模板专属伙伴。
+  # 推荐：COW, PIG, SHEEP, CHICKEN, VILLAGER, HORSE, IRON_GOLEM, OCELOT, RABBIT, WOLF, LLAMA 或 NOTHING。默认 COW。
+  companion: COW
+
+  # 默认伙伴名字列表，随机选取。若不设置，伙伴将无名。
+  # 可在 schematicsection 中设置模板专属名字。
+  companionnames:
+    - "&b星空小牛"
+
+  # 岛屿命名
+  # 只有拥有 askyblock.island.name 权限的玩家可以命名岛屿。
+  # 名字会显示在排行榜、进出消息中，替代岛主名。可使用 & 颜色代码。
+  # 以下设置最小和最大长度。
+  minnamelength: 0
+  maxnamelength: 20
+
+  # 拥有 askyblock.islandfly 权限的玩家可在自己岛屿飞行。此设置控制玩家离开岛屿后多少秒内仍可飞行，超时后取消飞行（并坠落）。
+  # 负值视为 0。
+  flytimeoutside: 0
+
+  # 下列权限将在玩家位于自己岛屿内时临时赋予，离开时自动收回。
+  islandtemporaryperms:
+    #- "amazing.permission"
+
+  # 系统设置 - 玩家只能查看，不可更改
+  # 允许末影人搬走方块（默认允许，见下一条）
+  allowendermangriefing: false
+  # 末影人死亡时掉落手中方块（推荐）
+  endermandeathdrop: true
+  # 允许苦力怕爆炸破坏方块（爆炸仍会伤及玩家）
+  allowcreeperdamage: false
+  # 允许访客利用苦力怕爆炸破坏岛屿
+  allowcreepergriefing: true
+  # 允许 TNT 破坏方块（防止玩家用 TNT 炸毁他人岛屿）
+  allowtntdamage: false
+  # 允许访客扑灭火
+  allowfireextinguish: false
+  # 允许箱子被苦力怕或 TNT 炸毁
+  allowchestdamage: false
+  # 允许访客死亡后保留物品
+  allowvisitorkeepinvondeath: true
+  # 允许活塞推出保护区外（如搭桥）
+  allowpistonpush: false
+  # 允许怪物抛射物（骷髅箭、潜影贝子弹）破坏物品框
+  allowitemframedamage: false
+
+##### 常规设置 #####
+general:
+  # 世界名称 - 如果不存在则自动生成
+  worldName: ASkyBlock
+
+  # 新玩家默认语言。
+  # 此值为 locale 文件夹中的文件名（不含 .yml）。
+  # 如果不存在，则使用默认 en-US。
+  defaultlanguage: zh-CN
+
+  # 关闭更新检查（避免因连接 SpigotMC 超时导致 Watchdog 线程卡死）
+  checkupdates: false
+
+  # ASkyBlock 会使用命令实现部分功能（如动作栏、标题）。过去它会自动执行 "/minecraft:gamerule sendCommandFeedback false" 来静默这些命令，现在可在此开关。
+  silencecommandfeedback: true
+
+  # 进出岛屿通知是否显示在动作栏（1.11.1+）
+  # 仅在设置中启用了通知时有效
+  showinactionbar: true
+
+  # 最大岛屿数量。0 表示无限制。
+  # 若已达到上限，不允许创建新岛屿。
+  maxIslands: 0
+
+  # 是否将控制面板作为 /island 的默认显示方式。
+  # /island 在无岛屿时仍会创建岛屿。
+  # 如果禁用控制面板，/island 将直接传送回家。
+  # 玩家可通过 /island cp on/off 自行切换。
+  usecontrolpanel: true
+
+  # 是否创建下界。如果为 false，将不会生成下界世界，也无法进入下界。其他插件可能仍会启用传送门。
+  # 注意：某些挑战在没有下界时无法完成。
+  # 标准下界中，所有玩家到达同一传送门，进入传送门会返回各自岛屿。
+  createnether: false
+
+  # 是否使用新式岛屿风格下界。false 则为标准下界。
+  newnether: true
+  # 下界中是否生成树木（使用沙砾和萤石）
+  nethertrees: true
+  # 是否生成下界顶部。如果造成卡顿，可设为 false。
+  netherroof: true
+  # 下界出生点保护半径 - 下界出生点周围保护玩家交互的距离（破坏方块、倒岩浆等）。
+  # 最小值 0（不推荐），最大值 100，默认 25。
+  # 仅适用于标准下界。
+  netherspawnradius: 25
+
+  # 玩家登录时自动计算岛屿等级
+  # 若计算任务繁忙，将静默失败。
+  loginlevel: false
+
+  # 玩家重置岛屿时执行的命令（可自定义取消注释）
+  # [player] 会被替换为重置玩家的名字
+  # 如果命令前加 [SELF]，则该命令以玩家身份执行
+  # 例如：- "[SELF] kit tools"
+  resetcommands:
+    #- "kit tools [player]"
+    #- "some other command"
+
+  # 玩家离开队伍（主动退出或被踢）时执行的命令
+  # 即使玩家离线也会执行，可能导致控制台错误如果命令无效
+  leavecommands:
+    #- "kit tools [player]"
+    #- "some other command"
+
+  # 玩家首次创建岛屿（非重置）时执行的命令
+  startcommands:
+    #- "asadmin lock [player]"
+    #- "[SELF] balance"
+    #- "some other command"
+
+  # 玩家加入新队伍（接受邀请）时执行的命令
+  teamstartcommands:
+    #- "[SELF] balance"
+    #- "some other command"
+
+  # 协作者是否可以创建传送点
+  coopscancreatewarps: false
+
+  # 访客在岛屿上禁用的命令
+  visitorbannedcommands:
+    - spawner
+    - spawnmob
+
+  # PVP 切换冷却时间（秒）。玩家在此时间内无法再次切换 PVP 状态。
+  pvpcooldown: 60
+
+  # 无敌访客 - 防止玩家故意或意外杀死访客。
+  # 如果访客掉入虚空，会被传回自己的岛屿。
+  invinciblevisitors: false
+
+  # 仅在 invinciblevisitors 为 true 时有效。
+  # 可自定义访客不受哪些伤害类型影响。
+  # 若希望访客接受某种伤害，在该行前加 "#" 注释掉。
+  # 伤害类型参考：https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/event/entity/EntityDamageEvent.DamageCause.html
+  invinciblevisitorsoptions:
+    - BLOCK_EXPLOSION
+    - CONTACT
+    - CUSTOM
+    - DROWNING
+    - ENTITY_ATTACK
+    - ENTITY_EXPLOSION
+    - FALL
+    - FALLING_BLOCK
+    - FIRE
+    - FIRE_TICK
+    - LAVA
+    - LIGHTNING
+    - MAGIC
+    - POISON
+    - PROJECTILE
+    - STARVATION
+    - SUFFOCATION
+    - THORNS
+    - WITHER
+    # 1.9+ 新增
+    - DRAGON_BREATH
+    - FLY_INTO_WALL
+    # 1.10+ 新增
+    - HOT_FLOOR
+    # 1.11+ 新增
+    - CRAMMING
+
+  # 酸液伤害部分（原为 AcidIsland 功能，也可用于 ASkyBlock）
+  #
+  # 玩家在酸液中每秒受到的伤害（若无护甲）。
+  # 玩家满血 20 点，默认伤害 10 点，约 3 秒内死亡。
+  # 0 = 无伤害，10 = 默认，20 = 瞬间死亡
+  aciddamage: 0
+  # 怪物受到的酸液伤害
+  mobaciddamage: 0
+  # 雨水造成的伤害
+  raindamage: 0
+  # 动物受到的酸液伤害
+  animaldamage: 0
+  # 鸡在酸液中是否受伤（鸡喜欢游泳...）
+  damagechickens: false
+  # 物品在水中停留多少秒后销毁。实际销毁时间可能有 ±2 倍波动。0 表示不销毁。
+  # 此设置不依赖酸液开关，即普通水也有效。
+  # 物品销毁时会发出滋滋声。
+  itemdestroyafter: 0
+  # 管理员是否受酸液伤害（设为 true 让管理员正常游玩）
+  damageops: false
+  # 护甲保护。
+  # 戴头盔是否能抵御酸雨
+  helmetprotection: true
+  # 穿全套护甲是否能抵御所有酸液
+  fullarmorprotection: false
+  # 酸液之外附加的伤害类型（药水效果），可用牛奶解除。
+  # 类型可选：SLOW, SLOW_DIGGING, CONFUSION, BLINDNESS, HUNGER, WEAKNESS, POISON
+  damagetype:
+    #- confusion
+
+  # 移除怪物 - 登录时杀死附近所有怪物。好处是帮助玩家返回被怪物占领的岛屿，缺点是破坏刷怪塔。
+  loginremovemobs: true
+
+  # 使用 /island 时是否移除怪物
+  islandremovemobs: false
+
+  # 怪物白名单 - 这些怪物在登录或 /island 时不会被移除
+  mobwhitelist:
+    - WITHER
+    - ENDERMAN
+    - PIG_ZOMBIE
+    #- ZOMBIE_VILLAGER
+
+  # 此世界每个区块中怪物自然生成上限。
+  # 注意：这不限制怪物总数，只限制自然生成的速率。
+  # 设为负数将使用服务器全局生成上限。
+  monsterspawnlimit: 100
+
+  # 每个区块中动物自然生成上限。
+  animalspawnlimit: 48
+
+  # 动物繁殖上限 - 若大于 0，玩家岛屿上的动物数量不能超过此值。0 表示无限制。
+  # 注意：不会杀死超出的动物，只是阻止繁殖。同时影响刷怪蛋使用。繁殖时爱心会出现但实际不产生幼崽。
+  # 包括下界岛屿（如果开启）。
+  breedinglimit: 0
+
+  # 每个区块中水生动物（鱿鱼）自然生成上限。
+  wateranimalspawnlimit: 30
+
+  # 村民数量限制 - 每个队伍成员乘以该值，即 4 人队伍最多 4×此值。10 是建造铁农场的最低需求。0 表示无限制。
+  villagerlimit: 0
+
+  # 通用实体限制
+  # 用于限制岛屿上可放置的实体数量。
+  # 0 表示完全禁止放置。
+  # 取消注释即可设置限制值。以下数字仅供参考。
+  # 限制按世界独立计算，例如漏斗限制 30 意味着主世界和下界各可放置 30 个。
+  entitylimits:
+    # 怪物、动物和其他活体实体
+    #BAT: 10
+    #BLAZE: 10
+    #BOAT: 10
+    #CAVE_SPIDER: 10
+    #CHICKEN: 10
+    #COW: 10
+    #CREEPER: 10
+    #DONKEY: 10
+    #ENDERMAN: 10
+    #HORSE: 10
+    #HUSK: 10
+    #IRON_GOLEM: 10
+    #LLAMA: 10
+    #MAGMA_CUBE: 10
+    #MULE: 10
+    #MUSHROOM_COW: 10
+    #OCELOT: 10
+    #PIG: 10
+    #PIG_ZOMBIE: 10
+    #POLAR_BEAR: 10
+    #RABBIT: 10
+    #SHEEP: 10
+    #SKELETON: 10
+    #SKELETON_HORSE: 10
+    #SLIME: 10
+    #SNOWMAN: 10
+    #SPIDER: 10
+    #SQUID: 10
+    #STRAY: 10
+    #WITCH: 10
+    #WITHER: 10
+    #WITHER_SKELETON: 10
+    #WOLF: 10
+    #ZOMBIE: 10
+    #ZOMBIE_HORSE: 10
+    #ZOMBIE_VILLAGER: 10
+    # 可限制的方块（因为它们本质是实体）
+    #BANNER: 20
+    #ITEM_FRAME: 30
+    #FURNACE: 10
+    #CHEST: 50
+    #TRAPPED_CHEST: 50
+    #ENDER_CHEST: 1
+    #JUKEBOX: 5
+    #DISPENSER: 5
+    #DROPPER: 5
+    #SIGN: 10
+    #MOB_SPAWNER: 10
+    #NOTE_BLOCK: 5
+    #ENCHANTMENT_TABLE: 5
+    #BEACON: 12
+    #SKULL: 50
+    #DAYLIGHT_DETECTOR: 10
+    HOPPER: 100
+    #REDSTONE_COMPARATOR: 30
+    #FLOWER_POT: 20
+    #PAINTING: 5
+    #ARMOR_STAND: 5
+    #BREWING_STAND: 20
+
+  # 低于此等级的废弃岛屿在执行清理命令时会被移除
+  abandonedislandlevel: 5
+  # 单次最多清理的岛屿数量。不要设太大，以防中途停止服务器导致删除不完整。
+  maxpurge: 500
+
+  # 是否只删除岛屿保护区域内的方块。
+  # 设为 true 只删除保护区域；false 将删除整个岛屿距离范围内的所有方块（可能导致服务器超时）。
+  deleteprotectedonly: true
+
+  ##### 经济系统 ######
+  # 是否启用经济。若启用，需要经济插件；若禁用，不使用金钱且迷你商店禁用。
+  # 如果没有经济插件，经济会自动禁用。
+  useeconomy: true
+
+  # 重置金钱 - 为 true 时，玩家创建或重置岛屿时金钱将重置为起始金额（见下文）。
+  # 建议设为 true，但如果你运行多世界，请确保经济插件支持多世界。
+  resetmoney: false
+
+  # 是否启用迷你商店
+  useminishop: true
+
+  # 起始金钱 - 新玩家创建岛屿时拥有的初始余额。
+  startingmoney: 500.00
+
+  # 重置挑战 - 为 true 时，玩家重置岛屿、被踢或离开队伍时，挑战进度将重置，防止反复完成挑战刷奖励。
+  resetchallenges: false
+
+  # 重置物品栏 - 为 true 时，玩家创建或重置岛屿时物品栏将被清空。默认为 true。
+  # 注意：如果使用 MultiInv 等物品栏控制插件，换世界时可能也会重置。
+  resetinventory: false
+
+  # 被踢的玩家是否保留物品栏。
+  # 若为 false，被踢玩家若在线且在空岛世界，其物品将散落在队长附近。
+  kickedkeepinv: true
+
+  # 被踢或主动离队的玩家是否失去一次重置机会。
+  # 如果玩家已无重置次数且离开队伍，则无法创建新岛屿，只能加入队伍。
+  # 保持 true 可防止玩家利用免费岛屿。
+  leaversloseresets: true
+
+  # 重置末影箱 - 为 true 时，玩家创建或重置岛屿时末影箱将被清空。默认 false。
+  # 注意：末影箱跨世界，会清空所有世界中的末影箱，因此除非仅运行 ASkyBlock 世界，否则不建议启用。
+  # 末影箱的合成和使用由权限 askyblock.craft.enderchest 控制。
+  resetenderchest: false
+
+  # 是否允许在坠落时使用 /island 传送。若设为 false，所有传送将禁用，直到死亡落地或碰到底部。
+  # 下方列表可设置禁止传送时同时禁止的命令。使用 "*" 将阻止所有命令。
+  allowfallingteleport: true
+  blockingcommands:
+    - home
+    #- anotherCommand
+    #- andAnotherOne
+    #- "*"
+
+  # 是否将首次完成挑战的消息广播给所有玩家。
+  # 若觉得刷屏，可设为 false。
+  broadcastmessages: true
+
+  # 完成一次性的挑战后，是否将其从挑战 GUI 中移除
+  removecompleteonetimechallenges: false
+
+  # 为已完成的挑战添加附魔光效
+  addcompletedglow: true
+
+  # 默认最大家园数量。最小值 1。
+  # 可使用权限 askyblock.island.maxhomes.<number> 为特定用户组设置。
+  maxhomes: 1
+
+  # 玩家传送到空岛世界但无岛屿时，是否自动创建岛屿
+  makeislandifnone: false
+
+  # 玩家进入空岛世界时是否立即传送到自己的岛屿（如果存在家园 1）
+  immediateteleport: false
+
+  # 玩家死亡后是否在岛上重生
+  respawnonisland: false
+
+  # 队伍聊天
+  # 允许玩家使用 /island teamchat 开启仅队伍内聊天。
+  # 聊天前缀 [队伍聊天] 可在语言文件中修改。
+  teamchat: true
+
+  # 是否在控制台记录所有队伍聊天消息
+  logteamchat: true
+
+  # 聊天前缀中可用的变量。可自定义。
+  # {ISLAND_LEVEL} 替换为玩家岛屿等级。
+  # {ISLAND_CHALLENGE_LEVEL} 替换为玩家挑战等级。
+  # {ISLAND_PLAYER} 替换为玩家显示名。
+  # 已确认在 Essentials Chat, Multiverse Core 中有效。
+  # 不要在 PEX 前缀中使用这些变量。
+  chatlevelprefix: "&e[等级:{ISLAND_LEVEL}]&f"
+  chatchallengelevelprefix: "{ISLAND_CHALLENGE_LEVEL}"
+  chatislandplayer: "{ISLAND_PLAYER}"
+  # 是否在聊天中显示美化后的岛屿等级（如 [23.5k] 代替 [23562]）
+  fancylevelinchat: false
+
+  # 限制凋零等飞行怪物。
+  # 任何离开其生成岛屿空间的飞行怪物将被移除，包括烈焰人和恶魂。
+  restrictwither: true
+
+  # 创建传送点所需的最低等级。0 或负数表示无限制。
+  warplevelrestriction: 0
+
+  # 是否使用传送点 GUI 面板。若设为 false，将使用旧式文字列表。
+  usewarppanel: true
+
+  # 静默死亡消息
+  mutedeathmessages: false
+
+  # 岛屿网格保存间隔（分钟）。默认 5 分钟。有助于防止服务器崩溃时数据丢失。网格在重要时刻也会保存。
+  backupduration: 5
+
+  # 是否允许推动玩家（仅 1.9+）。如果使用其他计分板插件，可能无效。
+  # true 允许互相推动（1.9 默认行为），false 禁止推动。建议保持 true。
+  allowpushing: true
+
+  # 恢复超平坦 - 如果生成器未运行，可能出现超平坦区块（草方块）。启用此项可自动修复。若无问题，建议关闭以节省性能。
+  # 此选项会在加载区块时重新生成 y=0 处为基岩的区块。
+  recoversuperflat: false
+
+  # 是否允许协作者永久存在。
+  # 如果更改此项，请同步修改语言文件中关于协作者登出失效的提示。
+  persistentcoops: false
+
+  # 是否仅限岛主邀请协作者。
+  # 若为 true，队员无法邀请协作者。
+  onlyleadercancoop: false
+
+  # 协作者邀请是否需要对方同意。
+  # 若为 false，直接添加为协作者，无需确认。
+  coopisrequest: true
+
+  # 以下可列出 ASkyBlock 应忽略的假玩家账号（用于与某些 Mod 兼容）。自行承担风险！
+  fakeplayers:
+    # - [CoFH]
+    # - [BuildCraft]
+
+  # 是否允许用空桶将黑曜石舀回岩浆。
+  # 仅在黑曜石周围 10 格内无其他黑曜石时有效。
+  # 建议保持 true，以免新手不小心破坏岛屿而找你重置。
+  allowobsidianscooping: true
+
+  # 默认情况下，岛屿排行榜 (/is top) 显示为 GUI。
+  # 若此项设为 true，排行榜将在聊天中显示（旧版风格），可能会刷屏。
+  # 建议保持 false。
+  islandtopteninchat: false
+
+  # 是否启用魔法圆石生成器。
+  # 若启用，圆石生成器不只生成圆石，还会生成指定方块。
+  # 默认 false，因为这会大幅改变游戏玩法。
+  usemagiccobblegen: false
+
+  # 若启用魔法圆石生成器，是否仅在世界出生点工作。
+  # 注意：出生点必须与岛屿在同一世界。
+  magiccobblegenonlyatspawn: false
+
+  # 当 usemagiccobblegen 为 false 时此项无效。
+  # 可添加、删除或修改方块及其生成概率。
+  # 也可为不同岛屿等级设置不同概率。
+  magiccobblegenchances:
+    # 默认概率
+    default:
+      COBBLESTONE: 75.0
+      STONE: 10.0
+      COAL_ORE: 7.5
+      IRON_ORE: 5.0
+      DIAMOND_ORE: 2.0
+      EMERALD_ORE: 0.5
+    # 岛屿等级高于 500 时的概率
+    500:
+      COBBLESTONE: 50.0
+      STONE: 20.0
+      COAL_ORE: 10.0
+      IRON_ORE: 10.0
+      REDSTONE_ORE: 5.0
+      DIAMOND_ORE: 4.0
+      EMERALD_ORE: 1.0
+
+  # 当没有队伍成员在线时，禁用岛屿上的红石运行（可减少卡顿，但可能影响访客使用红石装置）。默认 false
+  disableofflineredstone: false
+
+  # 是否允许活塞推动 TNT。1.9.4 中存在一个无限 TNT 的漏洞，若需修复可设为 false。
+  allowTNTpushing: true
+
+  # 配置文件版本。请勿编辑。当插件更新配置文件时，此值会变化，新配置会自动保存为 config.new.yml。
+  version: 3.0.9.4
+
+# 保护设置
+protection:
+  # 保护标志：
+  # ACID_DAMAGE, ANVIL, ARMOR_STAND, BEACON, BED, BREAK_BLOCKS, BREEDING, BREWING,
+  # BUCKET, COLLECT_LAVA, COLLECT_WATER, CHEST, CHORUS_FRUIT, CRAFTING, CROP_TRAMPLE,
+  # DOOR, EGGS, ENCHANTING, ENDER_PEARL, ENTER_EXIT_MESSAGES, FIRE, FIRE_EXTINGUISH,
+  # FIRE_SPREAD, FURNACE, GATE, HORSE_INVENTORY, HORSE_RIDING, HURT_MOBS, LEASH,
+  # LEVER_BUTTON, MOB_SPAWN, MUSIC, PLACE_BLOCKS, PORTAL, PRESSURE_PLATE, PVP,
+  # MILKING, NETHER_PVP, REDSTONE, SPAWN_EGGS, SHEARING, VILLAGER_TRADING,
+  # VISITOR_ITEM_DROP, VISITOR_ITEM_PICKUP
+  #
+  # 玩家可通过权限在 GUI 中更改某些设置，例如 askyblock.settings.PVP 或 askyblock.settings.*（不区分大小写）。
+  #
+  # -- 世界默认设置 --
+  # 应用于所有地方，作为岛屿和出生点的默认值。
+  # 未列出的项默认为 false。
+  # 更改此项仅影响新岛屿。使用 /asadmin settingsreset 可重置单个或所有岛屿的设置。
+  world:
+    # 酸液在海平面以上造成伤害（如果酸液开启）
+    ACID_DAMAGE: false
+    # 允许使用铁砧
+    ANVIL: false
+    # 允许使用盔甲架（1.8+）
+    ARMOR_STAND: false
+    # 允许使用信标
+    BEACON: false
+    # 允许使用床
+    BED: false
+    # 玩家可以破坏方块或一般性破坏
+    BREAK_BLOCKS: false
+    # 允许动物繁殖
+    BREEDING: false
+    # 允许使用炼药锅和酿造台
+    BREWING: false
+    # 允许使用桶（倒出或装入）
+    BUCKET: false
+    # 允许收集岩浆（覆盖 BUCKET 设置）
+    COLLECT_LAVA: false
+    # 允许收集水（覆盖 BUCKET 设置）
+    COLLECT_WATER: false
+    # 允许访问箱子、投掷器、发射器、漏斗等
+    CHEST: false
+    # 允许食用或使用紫颂果
+    CHORUS_FRUIT: false
+    # 允许使用工作台
+    CRAFTING: true
+    # 允许苦力怕伤害玩家（但不破坏方块）
+    CREEPER_PAIN: true
+    # 允许踩踏作物
+    CROP_TRAMPLE: false
+    # 允许使用门或活板门（不包括红石激活）
+    DOOR: true
+    # 允许扔鸡蛋
+    EGGS: false
+    # 允许使用附魔台
+    ENCHANTING: true
+    # 允许扔末影珍珠
+    ENDER_PEARL: false
+    # 启用或禁用进出岛屿的消息
+    ENTER_EXIT_MESSAGES: true
+    # 允许点火（打火石、TNT 点火）。创建传送门始终允许。
+    FIRE: false
+    # 允许空手灭火
+    FIRE_EXTINGUISH: false
+    # 允许火势蔓延
+    FIRE_SPREAD: false
+    # 允许使用熔炉
+    FURNACE: true
+    # 允许使用栅栏门
+    GATE: false
+    # 允许打开马/羊驼的物品栏（仅在允许骑乘时有效）
+    HORSE_INVENTORY: false
+    # 允许骑乘马/羊驼
+    HORSE_RIDING: false
+    # 允许伤害友好生物（牛等）
+    HURT_MOBS: false
+    # 允许伤害怪物
+    HURT_MONSTERS: true
+    # 允许使用拴绳
+    LEASH: false
+    # 允许使用拉杆或按钮
+    LEVER_BUTTON: true
+    # 允许挤牛奶
+    MILKING: true
+    # 允许动物自然生成
+    MOB_SPAWN: true
+    # 允许怪物自然生成
+    MONSTER_SPAWN: true
+    # 允许使用唱片机和音符盒
+    MUSIC: false
+    # 允许下界 PVP
+    NETHER_PVP: false
+    # 玩家可以放置方块
+    PLACE_BLOCKS: false
+    # 允许使用传送门
+    PORTAL: true
+    # 允许玩家触发压力板
+    PRESSURE_PLATE: true
+    # 允许主世界 PVP
+    PVP: false
+    # 允许调整中继器或比较器
+    REDSTONE: false
+    # 允许使用刷怪蛋
+    SPAWN_EGGS: false
+    # 允许给羊剪毛
+    SHEARING: false
+    # 允许与村民交易
+    VILLAGER_TRADING: true
+    # 允许物品丢弃
+    VISITOR_ITEM_DROP: true
+    # 允许物品捡起
+    VISITOR_ITEM_PICKUP: true
+
+  # -- 岛屿设置（访客权限及岛屿自身开关）--
+  # 若某项未列出，则不会在 GUI 中显示，并使用世界默认值。
+  # 在此处添加设置项，并赋予玩家对应权限，他们才能在 GUI 中看到并更改。
+  island:
+    # 允许访客使用铁砧
+    ANVIL: true
+    # 允许访客使用盔甲架（1.8+）
+    ARMOR_STAND: false
+    # 允许访客使用信标
+    BEACON: false
+    # 允许访客使用床
+    BED: false
+    # 允许访客破坏方块或其他破坏行为
+    BREAK_BLOCKS: false
+    # 允许访客繁殖动物
+    BREEDING: false
+    # 允许访客使用炼药锅和酿造台
+    BREWING: false
+    # 允许访客访问箱子、投掷器、发射器、漏斗等
+    CHEST: false
+    # 允许访客使用工作台
+    CRAFTING: true
+    # 允许访客使用门或活板门（不包括红石激活）
+    DOOR: true
+    # 允许访客扔鸡蛋
+    EGGS: false
+    # 允许访客使用附魔台
+    ENCHANTING: true
+    # 允许访客使用熔炉
+    FURNACE: true
+    # 允许访客使用栅栏门
+    GATE: true
+    # 允许访客使用唱片机和音符盒
+    MUSIC: false
+    # 允许访客使用传送门
+    PORTAL: true
+    # 允许访客触发压力板（仅玩家）
+    PRESSURE_PLATE: false
+    # 允许访客调整中继器或比较器
+    REDSTONE: false
+    # 允许访客给羊剪毛
+    SHEARING: false
+
+    # 以下为补全的权限项（与 world 保持一致）
+    # 访客酸液伤害（如果启用）
+    ACID_DAMAGE: false
+    # 访客收集岩浆
+    COLLECT_LAVA: false
+    # 访客收集水
+    COLLECT_WATER: false
+    # 访客食用紫颂果
+    CHORUS_FRUIT: false
+    # 访客踩踏作物
+    CROP_TRAMPLE: false
+    # 访客使用桶（倒出或装入）
+    BUCKET: false
+    # 访客点火（打火石）
+    FIRE: false
+    # 访客空手灭火
+    FIRE_EXTINGUISH: false
+    # 访客引起火势蔓延
+    FIRE_SPREAD: false
+    # 访客打开马/羊驼物品栏
+    HORSE_INVENTORY: false
+    # 访客骑乘马/羊驼
+    HORSE_RIDING: false
+    # 访客伤害友好生物
+    HURT_MOBS: false
+    # 访客伤害怪物
+    HURT_MONSTERS: true
+    # 访客使用拴绳
+    LEASH: false
+    # 访客挤牛奶
+    MILKING: true
+    # 访客放置方块
+    PLACE_BLOCKS: false
+    # 访客使用刷怪蛋
+    SPAWN_EGGS: false
+    # 访客与村民交易
+    VILLAGER_TRADING: true
+    # 访客丢弃物品
+    VISITOR_ITEM_DROP: true
+    # 访客捡起物品
+    VISITOR_ITEM_PICKUP: true
+    # 访客造成苦力怕爆炸伤害
+    CREEPER_PAIN: true
+    # 访客进入/离开消息
+    ENTER_EXIT_MESSAGES: true
+    # 访客使用拉杆/按钮
+    LEVER_BUTTON: true
+    # 下界 PVP
+    NETHER_PVP: false
+    # PVP
+    PVP: false
+    # 动物自然生成
+    MOB_SPAWN: true
+    # 怪物自然生成
+    MONSTER_SPAWN: true
+    # 末影珍珠
+    ENDER_PEARL: false
+
+# 此部分包含可购买或使用的生物群系
+biomesettings:
+  # 更改生物群系的默认费用。可被具体群系覆盖。默认 100，不能小于 0。
+  defaultcost: 100
+
+  # 默认生物群系 - 所有玩家初始群系。默认 PLAINS。其他选项见下方。
+  defaultbiome: PLAINS
+
+# 生物群系列表及设置。
+# cost - 更改到该群系所需的费用
+# permission - 使用该群系所需的权限
+# 未列出的群系不可用。
+# icon - 控制面板中显示的图标
+# friendlyname - 群系的友好名称。若不设置，将使用官方名称进行美化（如 Hell 改为 Nether）
+# description - 群系描述，可使用 | 换行，支持颜色代码
+# remove ice/water/snow - 更改群系时会自动移除冰/水/雪
+
+biomes:
+  COLD_BEACH:
+    icon: SAPLING
+    friendlyname: "&b寒冷沙滩"
+    description: "&b白雪皑皑，寒冷刺骨。"
+    #permission: any.perm.you.want
+  DESERT:
+    icon: DEAD_BUSH
+    friendlyname: "&e沙漠"
+    description: "&e干燥的沙漠。|&e注意：冰和雪将会消失。"
+    #permission: any.perm.you.want
+  # 若使用旧版服务端，请将 MUTATED_FOREST 改为 FLOWER_FOREST
+  MUTATED_FOREST:
+    icon: RED_ROSE
+    friendlyname: "&a繁花森林"
+    description: "树木与鲜花！"
+    #permission: any.perm.you.want
+  HELL:
+    icon: LAVA_BUCKET
+    cost: 1000
+    # 此权限可自定义任何字符串
+    permission: askyblock.biomes.hell
+    friendlyname: "&c下界"
+    description: "&e注意：所有水、雪和冰将被移除。"
+  JUNGLE:
+    icon: VINE
+    friendlyname: "&2丛林"
+    description: "&a茂密的丛林。|&a注意：冰和雪将会消失。"
+    #permission: any.perm.you.want
+  MUSHROOM_ISLAND:
+    icon: RED_MUSHROOM
+    permission: askyblock.biomes.mushroom_island
+    friendlyname: "&c蘑菇岛"
+    description: "&c蘑菇遍地"
+  PLAINS:
+    icon: GRASS
+    description: "普通的平原"
+    cost: 0
+    #permission: any.perm.you.want
+  SWAMPLAND:
+    icon: WATER_LILY
+    friendlyname: "&e沼泽"
+    description: "&2潮湿泥泞。|&e注意：冰和雪将会消失。"
+    #permission: any.perm.you.want
+  MESA:
+    icon: HARD_CLAY
+    friendlyname: "&e恶地"
+    description: "&4罕见的干旱沙漠群系。|&4注意：冰和雪将会消失。"
+    #permission: any.perm.you.want
+    cost: 500
+  SAVANNA:
+    icon: LONG_GRASS
+    friendlyname: "&e热带草原"
+    description: "&e平坦干燥，无雨。|&e注意：冰和雪将会消失。"
+    #permission: any.perm.you.want
+  ROOFED_FOREST:
+    icon: LOG
+    friendlyname: "&l&e黑森林"
+    description: "&6茂密的森林"
+    #permission: any.perm.you.want
+
+schematicsection:
+  # 所有岛屿模板应放在 schematics 文件夹中。
+
+  # 如果玩家有多个可用模板，是否显示选择面板。若为 false，不显示面板，按权限选取第一个可用模板（若有多个权限，插件将随机选取一个）。
+  useschematicspanel: true
+
+  # 仅当 useschematicspanel 为 false 时生效。若为 false，插件按权限选取第一个可用模板；若为 true，插件从玩家所有可用模板中随机选取一个。
+  chooseislandrandomly: false
+
+  # 在 1.11 及以上版本中，是否将骷髅刷怪笼也生成凋零骷髅（帮助兼容不含明确凋零骷髅的旧模板）。旧版服务端忽略此项。
+  hackskeletonspawners: false
+
+  # 此部分列出所有可用模板
+  # 设置项说明：
+  # show - 是否在 GUI 中显示此模板。通常用于合作模板或临时隐藏。
+  # icon - GUI 中显示的图标，必须是有效的 Material
+  # order - 显示顺序，数值小的在前
+  # name - 模板的友好短名称，可使用颜色代码
+  # description - 详细描述，使用 | 换行，支持颜色代码
+  # filename - 模板文件在 schematic 文件夹中的名称
+  # useDefaultChest - 是否使用本配置文件中的箱子物品（若 false，则使用模板内预设的箱子）
+  # partnerSchematic - 在下界中对应的模板（如果启用了新式下界）
+  # biome - 该岛屿应使用的生物群系，粘贴后所有方块将具有此群系
+  # pasteentities - 如果模板包含实体（生物），设为 true 将一并粘贴（可能造成卡顿）
+  # usephysics - 设为 true 会使粘贴后液体流动（可能造成卡顿）
+  # pasteair - 仅在需要低于海平面粘贴时设为 true
+  # permission - 使用此模板所需的权限，可自定义任意字符串
+  # 你可以自由增删此列表。若此部分缺失，则只有默认岛屿可用。
+  schematics:
+    # default 标题是必需的
+    default:
+      icon: DIRT
+      order: 1
+      name: "原版"
+      description: "有挑战性的|初始|岛屿！"
+      filename: island.schematic
+      useDefaultChest: true
+      partnerSchematic: nether
+      levelHandicap: 3
+
+    # 这是默认下界模板 - 请勿删除！
+    nether:
+      show: false
+      icon: NETHERRACK
+      biome: HELL
+      name: "下界方块岛"
+      description: "下界中的岛屿，|有座怪物塔俯瞰着它。"
+      filename: nether.schematic
+      useDefaultChest: false
+      partnerSchematic: default
+      pasteentities: true
+      usephysics: true
+      levelHandicap: 93
+
+    island1:
+      icon: RED_ROSE
+      order: 2
+      name: "双岛"
+      description: "两个相邻的岛屿！|双倍乐趣，|难度略低。|&a[鸣谢] Antal1609"
+      filename: double.schematic
+      biome: FOREST
+      useDefaultChest: true
+      companion:
+        - CHICKEN
+      companionnames:
+        - "&9[player]的鸡"
+        - "&d走地鸡蛋"
+      partnerSchematic: nether
+      levelHandicap: 9
+      cost: 0
+
+    extrahard:
+      icon: OBSIDIAN
+      order: 3
+      name: "&l黑色&b钻石"
+      description: "仅限专家！|&a资源极少，|&a但有几颗钻石。"
+      filename: harder.schematic
+      biome: COLD_BEACH
+      useDefaultChest: false
+      usephysics: false
+      pasteentities: false
+      partnerSchematic: nether
+      levelHandicap: 1
+      cost: 0
+

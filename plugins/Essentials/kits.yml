@@ -2,42 +2,41 @@ kits:
   tools:
     delay: 10
     items:
-    - stone_sword 1
-    - stone_shovel 1
-    - stone_pickaxe 1
-    - stone_axe 1
+    - stonesword 1 name:&7石剑 lore:&f基础|开荒必备
+    - stoneshovel 1 name:&7石锹 lore:&f基础|开荒必备
+    - stonepickaxe 1 name:&7石镐 lore:&f基础|开荒必备
+    - stoneaxe 1 name:&7石斧 lore:&f基础|开荒必备
   dtools:
     delay: 600
     items:
-    - diamond_pickaxe 1 efficiency:1 unbreaking:1 fortune:1 name:&4超级钻头 lore:贯穿|天地的钻头
-    - diamond_shovel 1 efficiency:3 name:&b矮人 lore:挖呀|挖呀|挖
-    - leather_helmet 1 color:255,255,255 name:&f礼帽 lore:日安,_日安
-    - diamond_axe 1
-    - /broadcast {USERNAME} 获得了一套炫酷工具！
+    - dpickaxe 1 efficiency:1 durability:1 fortune:1 name:&b&l星空钻镐 lore:&f效率I|耐久I|时运I
+    - dshovel 1 digspeed:3 name:&b&l星空钻铲 lore:&f效率III|挖掘神器
+    - lhelm 1 color:255,255,255 name:&f&l白色礼帽 lore:&f绅士的|品味
+    - daxe:780 1 name:&b&l星空钻斧 lore:&f伐木利器
+    - /broadcast &b&l[星空岛] &e{USERNAME} &f领取了 &b&l钻石工具礼包&f！
   notch:
     delay: 6000
     items:
-    - playerhead 1 player:Notch
+    - playerhead 1 player:Notch name:&6&lNotch 之颅 lore:&f传说中|创始人之首
   color:
     delay: 6000
     items:
-    - writtenbook 1 title:&4颜色&9之&6书 author:KHobbits lore:游戏内颜色代码
-      book:Colors
+    - writtenbook 1 title:&4&l颜色&9&l代码&6&l手册 author:&b星空岛 lore:&f游戏内|颜色代码 book:Colors
   firework:
     delay: 6000
     items:
-    - fireworkrocket 1 name:愤怒苦力怕 color:red fade:green type:creeper power:1
-    - fireworkrocket 1 name:星夜 color:yellow,orange fade:blue type:star effect:trail,twinkle
+    - fireworkrocket 1 name:&c&l愤怒苦力怕 color:red fade:green type:creeper power:1
+    - fireworkrocket 1 name:&e&l星夜 color:yellow,orange fade:blue type:star effect:trail,twinkle
       power:1
-    - fireworkrocket 2 name:太阳风 color:yellow,orange fade:red shape:large effect:twinkle
+    - fireworkrocket 2 name:&6&l太阳风 color:yellow,orange fade:red shape:large effect:twinkle
       color:yellow,orange fade:red shape:ball effect:trail color:red,purple fade:pink
       shape:star effect:trail power:1
   newbie:
     delay: 600
     items:
-    - diamond_pickaxe 1 efficiency:1 unbreaking:1 fortune:1 name:&4超级钻头 lore:贯穿|天地的钻头
-    - diamond_shovel 1 efficiency:5 name:&b矮人 lore:挖呀|挖呀|挖
-    - leather_helmet 1 color:255,255,255 name:&f礼帽 lore:日安,_日安
-    - diamond_axe 1
-    - cooked_beef 32
-    - /broadcast {USERNAME} 获得了一套炫酷工具！
+    - dpickaxe 1 efficiency:1 durability:1 fortune:1 name:&b&l星空钻镐 lore:&f效率I|耐久I|时运I
+    - dshovel 1 digspeed:5 name:&b&l星空钻铲 lore:&f效率V|挖掘神器
+    - lhelm 1 color:255,255,255 name:&f&l白色礼帽 lore:&f新居民|的礼物
+    - daxe:780 1 name:&b&l星空钻斧 lore:&f伐木利器
+    - cookedbeef 32 name:&6&l熟牛排 lore:&f补充体力|开荒必备
+    - /broadcast &b&l[星空岛] &e{USERNAME} &f领取了 &a&l新手礼包&f，欢迎来到星空岛！

@@ -16,7 +16,7 @@ shop:
     MenuItem:
     - type:LAVA_BUCKET
     - 'name:&b&l购买岩浆桶 &7(x1)'
-    - 'lore:&e价格: 100 星币'
+    - 'lore:&e价格: 100 元'
     InventoryLocation: 1
   'Lava_64':
     RewardType: item
@@ -28,7 +28,7 @@ shop:
     MenuItem:
     - type:LAVA_BUCKET
     - 'name:&b&l购买岩浆桶 &7(x64)'
-    - 'lore:&e价格: 6400 星币'
+    - 'lore:&e价格: 6400 元'
     InventoryLocation: 2
 
   'Iron_1':
@@ -251,7 +251,7 @@ shop:
     MenuItem:
     - type:COBBLESTONE
     - 'name:&a&l出售圆石 &7(x1)'
-    - 'lore:&e价格: 1 星币'
+    - 'lore:&e价格: 1 元'
     InventoryLocation: 28
   'SellCobble_64':
     RewardType: money
@@ -263,7 +263,7 @@ shop:
     MenuItem:
     - type:COBBLESTONE
     - 'name:&a&l出售圆石 &7(x64)'
-    - 'lore:&e价格: 64 星币'
+    - 'lore:&e价格: 64 元'
     InventoryLocation: 29
 
   'SellWheat_1':

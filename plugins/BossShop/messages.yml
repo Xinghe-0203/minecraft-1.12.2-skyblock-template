@@ -7,7 +7,7 @@ Main:
   CloseShop: ''
   CloseShopOtherPlayer: '&6已关闭玩家 %displayname% &6的界面。'
   PlayerNotFound: '&c找不到玩家 %name%！'
-PlayerNotFound: '&c找不到玩家 %name%！'
+PlayerNotFound: '&cPlayer %name% not found!'
 Economy:
   NoAccount: '&c你还没有经济账户！'
 NotEnough:

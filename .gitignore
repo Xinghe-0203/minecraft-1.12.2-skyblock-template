@@ -1,9 +1,8 @@
-# 世界数据（用户需自行生成）
-world/region/
-world/data/
-world/advancements/
-world_nether/
-world_the_end/
+# 运行时锁文件
+session.lock
+uid.dat
+*/session.lock
+*/uid.dat
 
 # 日志
 logs/
@@ -11,31 +10,100 @@ logs/
 plugins/QuickShop/qs.log
 plugins/BossShop/BugFinder.yml
 
-# 运行时数据
-usercache.json
-session.lock
-uid.dat
-world/session.lock
-world/uid.dat
+# LuckPerms 运行时数据
 plugins/LuckPerms/libs/
 plugins/LuckPerms/cache/
-plugins/QuickShop/shops.db
-plugins/Essentials/userdata/
-plugins/Essentials/cache/
+plugins/LuckPerms/*.mv.db
+plugins/LuckPerms/contexts.json
+plugins/LuckPerms/translations/repository/
+plugins/LuckPerms/yaml-storage/
 
-# 封禁/OP 列表（用户自行配置）
-banned-ips.json
-banned-players.json
+# Essentials 缓存和玩家数据（含 IP 等个人信息）
+plugins/Essentials/cache/
+plugins/Essentials/userdata/
+plugins/Essentials/custom_items.yml
+plugins/Essentials/items.csv
+plugins/Essentials/worth.yml
+plugins/Essentials/spawn.yml
+plugins/Essentials/upgrades-done.yml
+plugins/Essentials/warps/
+
+# 数据库文件（含玩家敏感数据）
+plugins/AuthMe/authme.db
+plugins/AuthMe/authme.log
+plugins/FastLogin/FastLogin.db
+plugins/QuickShop/shops.db
+
+# 运行时生成的文件
+plugins/AuthMe/spawn.yml
+plugins/AuthMe/GeoLite2-Country.mmdb
+plugins/ProtocolLib/lastupdate
+
+# 错误的文件名（应使用正确文件名）
+plugins/askyblock .jar
+
+# WorldGuard 缓存
+plugins/WorldGuard/cache/
+
+# 皮肤缓存
+plugins/SkinsRestorer/cache/
+plugins/SkinsRestorer/skins/
+
+# 世界数据（包括主世界、下界、末地、空岛）
+/world/
+/world_nether/
+/world_the_end/
+/ASkyBlock/
+/ASkyBlock_nether/
+
+# 玩家数据与用户映射（含个人信息）
+plugins/Essentials/usermap.bin
+plugins/Essentials/uuids.bin
+plugins/Essentials/usermap.csv
+
+# 插件运行数据
+plugins/SkinsRestorer/
+
+# ASkyBlock 运行时数据（玩家、岛屿等）
+plugins/ASkyBlock/players/
+plugins/ASkyBlock/coops.yml
+plugins/ASkyBlock/islandnames.yml
+plugins/ASkyBlock/islands.yml
+plugins/ASkyBlock/name-uuid.txt
+plugins/ASkyBlock/resettimers.yml
+plugins/ASkyBlock/topten.yml
+plugins/ASkyBlock/warps.yml
+
+# 管理员与封禁数据
 ops.json
 whitelist.json
+banned-players.json
+banned-ips.json
+usercache.json
+permissions.yml
 
-# 服务器图标（可自定义）
-server-icon.png
+# 服务端核心缓存
+cache/
+
+# 服务端 Jar（应单独下载，不进版本控制）
+paper-*.jar
+
+# WorldGuard 世界级别配置（运行时生成）
+plugins/WorldGuard/worlds/
+
+# 自动生成的统计插件
+plugins/PluginMetrics/
+plugins/Updater/
+plugins/bStats/
 
 # 系统文件
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# 临时文件
+nohup.out
+server-icon.png
 
 # IDE
 .idea/

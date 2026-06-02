@@ -1,4 +1,4 @@
-&6欢迎来到星空岛，{PLAYER}&6！
-&6输入 &c/help &6查看指令列表。
+&6欢迎, &e{PLAYER}&6 来到星空岛！
+&6输入 &c/help &6查看命令列表。
 &6输入 &c/list &6查看在线玩家。
-&6当前在线:&c {ONLINE} &6- 世界时间:&c {WORLDTIME12}
+&6在线玩家：&c{ONLINE} &6- 世界时间：&c{WORLDTIME12}

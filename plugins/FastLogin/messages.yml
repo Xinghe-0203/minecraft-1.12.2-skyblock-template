@@ -1,0 +1,68 @@
+# FastLogin 汉化消息文件 - 星空岛专用
+# 颜色代码: &0-9 &a-f &l 加粗 &o 斜体 &r 重置
+
+# ========= 共享 (BungeeCord 与 Bukkit) ============
+
+# Switch mode 启用后，非白名单离线玩家尝试加入时的踢出消息
+switch-kick-message: '&4本服务器仅允许正版 Minecraft 账户加入'
+
+# 玩家激活正版登录，跳过离线认证
+add-premium: '&a已将该玩家加入正版账户列表'
+
+# 管理员为其他玩家激活正版登录
+add-premium-other: '&a已将该玩家加入正版账户列表'
+
+# 玩家已在正版账户列表中
+already-exists: '&4你已经在正版账户列表中'
+
+# 其他玩家已在正版账户列表中
+already-exists-other: '&4该玩家已经在正版账户列表中'
+
+# 玩家被改为离线账户
+remove-premium: '&a已将该玩家从正版账户列表中移除'
+
+# 玩家已是离线账户
+not-premium: '&4你不在正版账户列表中'
+
+# 其他玩家已是离线账户
+not-premium-other: '&4该玩家不在正版账户列表中'
+
+# 管理员尝试修改一个插件未知的用户
+player-unknown: '&4数据库中找不到该玩家'
+
+# ========= Bukkit/Spigot ============
+
+# 玩家跳过认证，因为是正版玩家
+auto-login: '&2自动登录成功'
+
+# 玩家在首次进服时被自动注册（保护账户不被离线玩家抢注）
+auto-register: '&2已自动注册，密码：%password
+请尽快修改密码！'
+
+# 玩家没有权限切换其他玩家的正版状态
+no-permission: '&4权限不足'
+
+# 控制台无法切换自己的正版状态
+no-console: '&4你不是玩家，无法切换自己的正版状态'
+
+# 玩家切换正版状态时，需要先与 BungeeCord 通信
+wait-on-proxy: '&6正在发送请求...'
+
+# ProtocolLib 启用且无法处理正版认证时的踢出消息
+error-kick: '&4发生错误'
+
+# 正版认证令牌验证失败（可能为恶意客户端）
+invalid-verify-token: '&4无效的验证令牌'
+
+# 客户端未向 Mojang 发送正版认证（可能为修改客户端）
+invalid-session: '&4无效的会话'
+
+# 客户端发送了恶意数据包
+invalid-request: '&4无效的请求'
+
+# 服务器尚未完全启动
+not-started: '&c服务器尚未完全启动，请稍后再试'
+
+# 玩家执行 /premium 命令时的警告
+premium-warning: '&c&l警告：&6该命令&l只能&6由正版账户本人执行
+再次输入 &a/premium&6 以确认'

@@ -34,16 +34,8 @@ resolvers:
 permissions:
     groups:
         default:
-            permissions:
-            - worldedit.reload
-            - worldedit.selection
-            - worlds.creative.worldedit.region
+            permissions: []
         admins:
             permissions:
             - '*'
-    users:
-        sk89q:
-            permissions:
-            - worldedit
-            groups:
-            - admins
+    users: []

@@ -16,6 +16,8 @@
 - **领地保护** — WorldGuard 区域保护，主城 1000x1000 安全区
 - **权限管理** — LuckPerms 权限组系统，支持网页编辑器
 - **新手友好** — 自动发放新手礼包，传送系统完善
+- **账号安全** — AuthMe 强制注册 + SHA256 密码哈希
+- **离线修复** — FastLogin 自动识别正版玩家
 
 ---
 
@@ -24,13 +26,15 @@
 | 项目 | 配置 |
 |------|------|
 | 服务端 | Paper 1.12.2 (git-Paper-1620) |
+| Java | **必须 Java 8 或 11**（不支持 17+） |
 | 端口 | 25565 |
 | 最大玩家 | 100 |
 | 游戏模式 | 生存 |
 | 难度 | 困难 |
 | PvP | 开启 |
-| 正版验证 | 开启 |
+| 正版验证 | 关闭（AuthMe 接管账号认证） |
 | 视距 | 10 区块 |
+| 出生点保护 | 16 格（基础）+ WorldGuard 1000×1000（主城） |
 
 ---
 
@@ -42,11 +46,16 @@
 | EssentialsXProtect | 2.21.2 | 出生点保护 |
 | EssentialsXSpawn | 2.21.2 | 出生点管理 |
 | BossShop | — | NPC 图形商店（星空物资商店） |
-| QuickShop | 经典版 | 玩家箱子商店 |
+| QuickShop | 1.13.2 | 玩家箱子商店 |
 | LuckPerms | 5.4.145 | 权限管理 |
-| WorldEdit | 6.1.9 | 世界编辑 |
+| WorldEdit | 6.1.9 | 世界编辑（普通玩家单次操作上限 50,000 方块） |
 | WorldGuard | 6.2.2 | 领地保护 |
 | Vault | — | 经济/权限 API 桥接 |
+| ASkyBlock | 3.0.9.4 | 空岛世界与挑战系统 |
+| AuthMe | 5.7.0-FORK | 账号注册与登录（SHA256 哈希） |
+| FastLogin | — | 正版玩家自动登录 |
+| SkinsRestorer | — | 离线服玩家皮肤恢复（中文语言） |
+| ProtocolLib | 5.3.0 | 网络协议支持库 |
 
 ---
 
@@ -55,44 +64,64 @@
 ```
 MC/
 ├── paper-1.12.2.jar          # 服务端核心
-├── start.sh                   # Linux/Mac 启动脚本
-├── start.bat                  # Windows 启动脚本
+├── start.sh                   # Linux/Mac 启动脚本（含 Java 版本检查）
+├── start.bat                  # Windows 启动脚本（含 Java 版本检查）
 ├── server.properties          # 服务器主配置
 ├── eula.txt                   # EULA 同意文件
 ├── bukkit.yml                 # Bukkit 配置
-├── spigot.yml                 # Spigot 配置
+├── spigot.yml                 # Spigot 配置（含玩家消息汉化）
 ├── paper.yml                  # Paper 配置
 ├── commands.yml               # 命令别名
-├── help.yml                   # 帮助配置
-├── 命令大全.md                 # 命令参考文档
+├── help.yml                   # 帮助主题配置（已汉化）
+├── permissions.yml            # 兜底权限配置（实际使用 LuckPerms）
+├── wepif.yml                  # WorldEdit 权限桥接配置
 ├── README.md                  # 本文件
+├── 命令大全.md                 # 命令参考文档
+├── ops.json                   # OP 列表（部署后需手动添加管理员）
 ├── plugins/
 │   ├── Essentials/            # EssentialsX 配置
 │   │   ├── config.yml         # 主配置（传送、经济、礼包等）
-│   │   ├── kits.yml           # 礼包定义
-│   │   ├── warps/             # 公共传送点
+│   │   ├── kits.yml           # 礼包定义（全部汉化）
+│   │   ├── motd.txt           # 登录欢迎语（已汉化）
+│   │   ├── book.txt           # /book 命令内容（已汉化）
 │   │   ├── worth.yml          # 物品回收价格
-│   │   └── motd.txt           # 登录欢迎语
+│   │   ├── tpr.yml            # /tpr 随机传送（已加 cooldown/warmup）
+│   │   └── warps/             # 公共传送点
 │   ├── BossShop/
-│   │   ├── config.yml         # BossShop 配置
+│   │   ├── config.yml
 │   │   ├── messages.yml       # 消息汉化
 │   │   └── shops/
 │   │       └── SkyBlockShop.yml  # 星空物资商店
 │   ├── QuickShop/
-│   │   ├── config.yml         # QuickShop 配置
+│   │   ├── config.yml
 │   │   └── messages.yml       # 消息汉化
 │   ├── LuckPerms/
-│   │   └── config.yml         # 权限配置
+│   │   └── config.yml
 │   ├── WorldEdit/
-│   │   └── config.yml         # WorldEdit 配置
-│   └── WorldGuard/
-│       ├── config.yml         # WorldGuard 全局配置
-│       └── worlds/
-│           └── world/
-│               └── regions.yml  # 主城领地保护
+│   │   └── config.yml         # 已加普通玩家操作上限
+│   ├── WorldGuard/
+│   │   ├── config.yml         # 全局配置（已修复损坏的 key）
+│   │   └── worlds/
+│   │       └── world/
+│   │           └── regions.yml  # 主城领地保护
+    │   ├── AuthMe/
+    │   │   ├── config.yml         # SHA256 哈希、强制注册、允许登录前移动
+    │   │   └── messages/          # 中文消息
+│   ├── FastLogin/
+│   │   ├── config.yml
+│   │   └── messages.yml       # 25 条消息全部汉化
+│   ├── SkinsRestorer/
+│   │   └── config.yml         # locale: zh_cn
+│   └── ASkyBlock/
+│       ├── config.yml
+│       ├── locale/zh-CN.yml   # 中文语言包
+│       ├── challenges.yml     # 挑战配置
+│       └── schematics/        # 岛屿模板
 ├── world/                     # 主世界
 ├── world_nether/              # 下界
-└── world_the_end/             # 末地
+├── world_the_end/             # 末地
+├── ASkyBlock/                 # 空岛世界
+└── ASkyBlock_nether/          # 空岛下界
 ```
 
 ---
@@ -101,45 +130,45 @@ MC/
 
 ### 第一步：环境准备
 
-#### 1.1 安装 Java 8
+#### 1.1 安装 Java 8 或 11
 
-Paper 1.12.2 需要 **Java 8**（不支持 Java 11+）。
+Paper 1.12.2 **仅支持 Java 8 或 11**，不支持 Java 17+（运行时会因模块系统报错）。
 
 **Windows：**
-1. 前往 [Adoptium](https://adoptium.net/) 下载 Java 8 (LTS)
+1. 前往 [Adoptium](https://adoptium.net/) 下载 Java 8 (LTS) 或 Java 11 (LTS)
 2. 安装时勾选 "Set JAVA_HOME variable"
-3. 打开命令提示符，验证安装：
+3. 打开命令提示符验证：
    ```cmd
    java -version
    ```
-   应显示 `openjdk version "1.8.x"` 或类似版本号
 
 **Linux（Ubuntu/Debian）：**
 ```bash
 sudo apt update
-sudo apt install openjdk-8-jre-headless
+sudo apt install openjdk-11-jre-headless
 java -version
 ```
 
 **macOS：**
 ```bash
-brew install openjdk@8
+brew install openjdk@11
 java -version
 ```
 
+> 启动脚本（start.sh / start.bat）已内置 Java 版本检查，Java 17+ 会直接拒绝启动。
+
 #### 1.2 端口开放
 
-确保服务器的 **25565** 端口已开放：
-
+确保 **25565** 端口已开放：
 - **本地测试**：无需额外配置
-- **局域网**：在路由器中转发 25565 端口到服务器内网 IP
-- **公网**：在云服务器安全组中放行 TCP 25565 端口
+- **局域网**：在路由器中转发 25565 到服务器内网 IP
+- **公网**：在云服务器安全组放行 TCP 25565
 
 ---
 
 ### 第二步：下载服务器文件
 
-#### 方式一：从 GitHub 下载（推荐）
+#### 方式一：从 GitHub 克隆
 
 ```bash
 git clone https://github.com/你的用户名/1.12.2-空岛服务器模板.git
@@ -158,7 +187,7 @@ cd 1.12.2-空岛服务器模板
 
 #### 3.1 同意 EULA
 
-编辑 `eula.txt`，确保内容为：
+编辑 `eula.txt`：
 ```
 eula=true
 ```
@@ -178,27 +207,23 @@ chmod +x start.sh
 start.bat
 ```
 
-> 首次启动会自动生成世界文件，耗时较长，请耐心等待。
+> 首次启动会自动生成世界文件，耗时较长。
 
 #### 3.3 启动脚本说明
 
-`start.sh`（Linux/Mac）：
-```bash
-#!/bin/bash
-java -Xms1G -Xmx2G -jar paper-1.12.2.jar nogui
-```
+`start.sh` 与 `start.bat` 已内置：
+- Java 版本检查（拒绝 Java 17+）
+- 内存设置 `-Xms2G -Xmx4G`（按需调整）
+- G1GC 调优参数（适合 4G 堆）
 
-`start.bat`（Windows）：
-```bat
-@echo off
-java -Xms1G -Xmx2G -jar paper-1.12.2.jar nogui
-pause
-```
+**内存建议：**
 
-**内存说明：**
-- `-Xms1G`：初始内存 1GB
-- `-Xmx2G`：最大内存 2GB
-- 建议根据玩家数量调整：10人以下 2G，10-30人 4G，30人以上 8G
+| 玩家数 | 推荐内存 |
+|--------|----------|
+| 10 人以下 | 2G（`-Xmx2G`） |
+| 10-30 人 | 4G（`-Xmx4G`，默认） |
+| 30-50 人 | 6G（`-Xmx6G`） |
+| 50 人以上 | 8G（`-Xmx8G`） |
 
 ---
 
@@ -213,8 +238,11 @@ motd=§b§l★ §d§l星空岛 §b§l★
 # 最大玩家数
 max-players=100
 
-# 正版验证（离线服务器设为 false）
-online-mode=true
+# 正版验证（关闭 = 离线服，由 AuthMe 接管账号认证）
+online-mode=false
+
+# 难度（3 = 困难，2 = 普通，1 = 简单，0 = 和平）
+difficulty=3
 
 # 端口
 server-port=25565
@@ -225,18 +253,20 @@ view-distance=10
 
 #### 4.2 设置管理员
 
-在服务器控制台中执行：
-```
+```bash
+# 在服务器控制台执行：
 op 你的游戏名
 ```
+
+> 本模板的 `ops.json` 默认为空，部署后由您自行添加管理员。
 
 #### 4.3 经济配置
 
 编辑 `plugins/Essentials/config.yml`：
 ```yaml
-currency-symbol: '星币'
+currency-symbol: ' 星币'    # 货币符号前含空格
 currency-symbol-before: false
-starting-balance: 500
+starting-balance: 500        # 新玩家初始余额
 ```
 
 ---
@@ -245,7 +275,7 @@ starting-balance: 500
 
 #### 5.1 主城保护
 
-主城区域已预配置为 1000x1000 的安全区（WorldGuard `main_spawn` 区域）：
+主城区域已预配置为 1000×1000 的安全区（WorldGuard `main_spawn` 区域）：
 - 禁止建造
 - 禁止 PvP
 - 禁止怪物生成
@@ -253,16 +283,14 @@ starting-balance: 500
 
 #### 5.2 空岛世界
 
-空岛世界需要安装 ASkyBlock 插件：
+ASkyBlock 插件已包含。空岛世界会自动生成在 `ASkyBlock/` 与 `ASkyBlock_nether/` 目录。
 
-1. 下载 [ASkyBlock](https://www.spigotmc.org/resources/askyblock.1220/) 插件
-2. 将 jar 文件放入 `plugins/` 目录
-3. 重启服务器
-4. 空岛世界会自动生成
+玩家首次进服使用 `/is` 创建个人空岛。
 
 #### 5.3 传送点管理
 
 已配置的传送点：
+
 | 传送点 | 世界 | 用途 |
 |--------|------|------|
 | `spawn` | 主世界 | 主城出生点 |
@@ -281,20 +309,23 @@ starting-balance: 500
 
 ### 第六步：权限配置
 
-#### 6.1 使用 LuckPerms 网页编辑器
+#### 6.1 创建权限组
 
+```bash
+# 在服务器控制台执行：
+/lp creategroup default
+/lp creategroup vip
+/lp creategroup admin
 ```
-/lp editor
-```
-执行后会生成一个网页链接，在浏览器中打开即可可视化编辑权限。
 
 #### 6.2 推荐权限组结构
 
 ```
 default（默认玩家）
   ├── essentials.tpa
+  ├── essentials.tpaccept
   ├── essentials.sethome
-  ├── essentials.sethome.multiple.players
+  ├── essentials.sethome.multiple.players (10个家)
   ├── essentials.home
   ├── essentials.warp
   ├── essentials.kit
@@ -302,34 +333,43 @@ default（默认玩家）
   ├── essentials.balance
   ├── essentials.worth
   ├── essentials.sell
-  └── quickshop.shop.create
+  ├── quickshop.shop.create
+  └── askyblock.island
 
 vip（VIP 玩家）
   ├── 继承 default
   ├── essentials.sethome.multiple.vip (20个家)
-  └── essentials.fly
+  ├── essentials.fly
+  └── essentials.back.ondeath
 
 admin（管理员）
   ├── 继承 vip
   ├── essentials.*
   ├── worldedit.*
   ├── worldguard.*
-  └── luckperms.*
+  ├── luckperms.*
+  └── authme.*
 ```
 
-创建示例：
-```
-/lp creategroup default
-/lp creategroup vip
-/lp creategroup admin
+#### 6.3 常用命令
 
+```bash
+# 设置组权限
 /lp group default permission set essentials.tpa true
-/lp group default permission set essentials.sethome true
 /lp group vip permission set essentials.fly true
 /lp group admin permission set essentials.* true
 
+# 玩家加入组
 /lp user 玩家名 parent add admin
 ```
+
+#### 6.4 使用网页编辑器
+
+```bash
+/lp editor
+```
+
+会生成一个网页链接，在浏览器中可视化编辑权限。
 
 ---
 
@@ -337,74 +377,123 @@ admin（管理员）
 
 #### 7.1 NPC 商店（BossShop）
 
+```bash
+/shop    # 打开星空物资商店
+```
+
 编辑 `plugins/BossShop/shops/SkyBlockShop.yml` 可修改商品和价格。
 
 #### 7.2 玩家商店（QuickShop）
 
-玩家使用 `/qs create <价格>` 在箱子上创建商店。
+```bash
+/qs create [价格]    # 在目标箱子上创建商店
+```
 
 配置要点（`plugins/QuickShop/config.yml`）：
 ```yaml
 shop:
-  cost: 10           # 创建费用
-  lock: true          # 商店锁定
-  display-items: true # 悬浮物品展示
-tax: 0.00             # 税率（0 = 免税）
+  cost: 10           # 创建费用（10 星币）
+  lock: true         # 商店锁定
+  display-items: true  # 悬浮物品展示（1.12.2 上有几率触发物品复制 Bug，生产环境建议设为 false）
+tax: 0.00            # 税率（0 = 免税）
 ```
 
 ---
 
-### 第八步：备份与维护
+### 第八步：账号安全（AuthMe）
 
-#### 8.1 手动备份
+本模板已启用 AuthMe 强制注册 + SHA256 密码哈希。
+
+玩家首次进服需要：
+1. 输入 `/register <密码> <确认密码>` 注册
+2. 之后每次进服输入 `/login <密码>` 登录
+
+**提示**：由于服务器使用 FRP 转发，所有玩家连接 IP 均显示为 127.0.0.1。请勿在公网环境部署。
+
+---
+
+### 第九步：备份与维护
+
+#### 9.1 手动备份
 
 ```bash
 # 停止服务器后
-tar -czf backup_$(date +%Y%m%d).tar.gz world world_nether world_the_end plugins
+tar -czf backup_$(date +%Y%m%d).tar.gz world world_nether world_the_end ASkyBlock plugins
 ```
 
-#### 8.2 自动备份
+#### 9.2 自动备份
 
-在 Essentials 配置中启用：
+Essentials 配置中已启用：
 ```yaml
 backup:
   enabled: true
-  interval: 1440    # 每24小时
-  command: 'tar -czf backup_$(date +%Y%m%d).tar.gz world'
+  interval: 1440    # 每 24 小时
+  command: 'tar -czf backup.tar.gz world'
 ```
 
-#### 8.3 性能优化建议
+#### 9.3 性能优化建议
 
 - 视距 `view-distance` 设为 8-10
-- `spigot.yml` 中 `mob-spawn-range` 设为 4
-- `paper.yml` 中 `max-auto-save-chunks-per-tick` 设为 24
-- 定期清理掉落物（已配置 20 分钟自动清理）
+- `spigot.yml` 中 `mob-spawn-range` 设为 4（已配）
+- `paper.yml` 中 `max-auto-save-chunks-per-tick` 设为 24（已配）
+- 定期清理掉落物（已配 20 分钟自动清理）
+- 启动脚本已启用 G1GC（适合 4G+ 堆）
 
 ---
 
 ## 常见问题
 
 ### Q: 玩家连接显示"版本不匹配"
-A: 服务器是 1.12.2 版本，玩家需要使用 Minecraft 1.12.2 客户端连接。可在启动器中切换版本。
+A: 服务器是 1.12.2 版本，玩家需使用 Minecraft 1.12.2 客户端。
 
-### Q: 如何关闭正版验证（离线模式）？
-A: 编辑 `server.properties`，将 `online-mode=true` 改为 `online-mode=false`。注意：关闭后皮肤系统失效，且需注意安全问题。
+### Q: 启动时报 `UnsupportedOperationException: ... java.lang does not "opens java.lang"`
+A: 您正在使用 Java 17+。Paper 1.12.2 不支持 Java 17+，请安装 Java 8 或 11。
+
+### Q: 启动时报 `bind(..) failed: 地址已在使用`
+A: 端口 25565 被占用。先停止占用该端口的进程：
+```bash
+# Linux
+lsof -i :25565
+kill -9 <PID>
+
+# Windows
+netstat -ano | findstr :25565
+taskkill /PID <PID> /F
+```
 
 ### Q: 新手礼包发放失败？
-A: 检查 `plugins/Essentials/kits.yml` 中 `newbie` 礼包的物品格式是否正确。使用 `/kit newbie` 手动测试。
+A: 检查 `plugins/Essentials/kits.yml` 中 `newbie` 礼包的物品格式。使用 `/kit newbie` 手动测试。
 
 ### Q: 如何添加新的 NPC 商店？
-A: 在 `plugins/BossShop/shops/` 目录下创建新的 yml 文件，参考 `SkyBlockShop.yml` 的格式。
+A: 在 `plugins/BossShop/shops/` 目录下创建新的 yml 文件，参考 `SkyBlockShop.yml`。
 
 ### Q: 玩家无法在某区域建造？
 A: 检查 WorldGuard 区域设置：`/rg info <区域名>`，确认 `build` 标志是否为 `allow`。
 
 ### Q: 服务器卡顿怎么办？
-A: 
-1. 降低视距至 8
-2. 减少实体数量：`/butcher 100`
-3. 使用 `/gc` 查看TPS
-4. 检查是否有多余的掉落物
+A:
+1. 检查 Java 版本（必须是 8 或 11）
+2. 降低视距至 8
+3. 减少实体数量：`/butcher 100`
+4. 使用 `/gc` 查看 TPS
+5. 检查是否有多余的掉落物
+6. 启动脚本已启用 G1GC
+
+### Q: 玩家想用皮肤？
+A: SkinsRestorer 已启用，玩家使用 `/skin <玩家名>` 即可。其他玩家能正常看见该玩家的皮肤。
+
+### Q: AuthMe 提示密码错误
+A: 确认输入的大小写正确。如忘记密码，使用控制台执行 `authme unregister <玩家名>` 重置。
+
+### Q: 玩家不需要登录？
+A: 编辑 `plugins/AuthMe/config.yml`：
+```yaml
+registration:
+  enabled: false  # 关闭注册
+settings:
+  sessions:
+    enabled: true
+```
 
 ---
 
@@ -423,9 +512,14 @@ A:
 - LuckPerms: MIT
 - WorldEdit: GPL-3.0
 - WorldGuard: GPL-3.0
+- ASkyBlock: GPL-3.0
+- AuthMe: GPL-3.0
+- FastLogin: MIT
+- SkinsRestorer: GPL-3.0
 - BossShop: 免费使用
-- QuickShop: 免费使用
+- QuickShop: GPL-3.0
 - Vault: 免费使用
+- ProtocolLib: GPL-2.0
 
 ---
 
@@ -433,6 +527,10 @@ A:
 
 - [PaperMC](https://papermc.io/) — 高性能 Minecraft 服务端
 - [EssentialsX](https://essentialsx.net/) — 核心功能插件
-- [LuckPerms](https://luckperms.net/) — 权限管理插件
-- [WorldEdit](https://enginehub.org/worldedit/) — 世界编辑插件
-- [WorldGuard](https://enginehub.org/worldguard/) — 领地保护插件
+- [LuckPerms](https://luckperms.net/) — 权限管理
+- [WorldEdit](https://enginehub.org/worldedit/) — 世界编辑
+- [WorldGuard](https://enginehub.org/worldguard/) — 领地保护
+- [ASkyBlock](https://www.spigotmc.org/resources/askyblock.1220/) — 空岛插件
+- [AuthMe](https://github.com/AuthMe/AuthMeReloaded) — 账号安全
+- [FastLogin](https://www.spigotmc.org/resources/fastlogin.14153/) — 正版自动登录
+- [SkinsRestorer](https://skinsrestorer.net/) — 皮肤恢复

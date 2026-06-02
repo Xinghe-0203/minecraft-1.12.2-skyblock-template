@@ -1,0 +1,79 @@
+# Control panel file
+# For colors in panel name use &. Note client must restart if changes made as it caches inventory.
+# [island] refers to the island command, e.g., /island
+# material format is MATERIAL:DURABILITY where DURABILITY is optional
+# description can include color codes using & and new lines using |
+
+default:
+  panelname: '&9&l星空岛屿 - 控制中心'
+  buttons:
+    0:
+      material: BED
+      description: '&b&l[H] &a回到岛屿|&7回到你的温馨小窝'
+      command: '[island] go'
+      nextsection: ''
+    1:
+      material: SIGN
+      description: '&b&l[?] &a岛屿帮助|&7点击查看所有空岛指令'
+      command: '[island] help'
+      nextsection: ''
+    2:
+      material: EXP_BOTTLE
+      description: '&b&l[C] &a岛屿挑战|&7完成挑战，获得丰厚奖励'
+      command: '[island] c'
+      nextsection: ''
+    3:
+      material: EMERALD
+      description: '&b&l[L] &a计算等级|&7看看你的岛屿值多少分'
+      command: '[island] level'
+      nextsection: ''
+    4:
+      material: PAINTING
+      description: '&b&l[T] &a排行榜|&7查看全服最强岛屿'
+      command: '[island] top'
+      nextsection: ''
+    5:
+      material: ENCHANTED_BOOK
+      description: '&b&l[W] &a传送点|&7访问其他玩家的岛屿'
+      command: '[island] warps'
+      nextsection: ''
+    6:
+      material: REDSTONE_COMPARATOR
+      description: '&b&l[S] &a岛屿设置|&7修改访客权限和各种开关'
+      command: '[island] settings'
+      nextsection: ''
+    7:
+      material: SAPLING
+      description: '&b&l[B] &a生物群系|&7改变你岛屿的生态环境'
+      command: '[island] biomes'
+      nextsection: ''
+    8:
+      material: GOLD_INGOT
+      description: '&6&l[$] &e迷你商店|&7购买稀有物品，出售你的资源'
+      command: '[island] ms'
+      nextsection: ''
+    9:
+      material: IRON_BOOTS
+      description: '&c&l[X] &e驱逐访客|&7把讨厌的家伙踢出岛屿'
+      command: '[island] expel'
+      nextsection: ''
+    10:
+      material: SKULL_ITEM
+      description: '&b&l[M] &a队伍管理|&7查看和管理你的队伍'
+      command: '[island] team'
+      nextsection: ''
+    11:
+      material: BARRIER
+      description: '&4&l[B] &c黑名单|&7禁止特定玩家进入你的岛屿'
+      command: '[island] ban'
+      nextsection: ''
+    12:
+      material: BEDROCK
+      description: '&e&l[主城] &a返回主城|&7传送到服务器主城出生点'
+      command: 'spawn'
+      nextsection: ''
+    13:
+      material: COMPASS
+      description: '&a&l[设置家] &e设置重生点|&7将当前位置设为岛屿家园'
+      command: '[island] sethome'
+      nextsection: ''

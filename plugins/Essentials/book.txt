@@ -1,18 +1,15 @@
-This is the book file.
-
-This file format works similar to the info.txt, motd.txt and rules.txt
-
-Place content in here that you would like to be used by books ingame.
-
-You can use this content by using the book:<section> meta option in kits or item spawning.
+这是星空岛的书本文件。
+该文件格式与 info.txt、motd.txt、rules.txt 类似。
+将内容放在这里后，可在游戏中通过书本命令使用。
+可以通过在礼包或物品生成中使用 book:<章节名> 元数据来引用此内容。
 
 #Colors
-Minecraft colors:
-&0 &&0  &1 &&1  &2 &&2  &3 &&3
-&4 &&4  &5 &&5  &6 &&6  &7 &&7
-&8 &&8  &9 &&9  &a &&a  &b &&b
-&c &&c  &d &&d  &e &&e  &f &&f
-&0 
-&&k &kMagic&r   &&l &lBold&r
-&&m &mStrike&r  &&n &nUline&r
-&&o &oItalic&r   &&r &rReset
+Minecraft 颜色代码：
+&0 黑色  &1 深蓝  &2 深绿  &3 深青
+&4 深红  &5 紫色  &6 金色  &7 灰色
+&8 深灰  &9 蓝色  &a 绿色  &b 青色
+&c 红色  &d 粉色  &e 黄色  &f 白色
+
+格式代码：
+&k 乱码  &l 加粗  &m 删除线
+&n 下划线  &o 斜体  &r 重置

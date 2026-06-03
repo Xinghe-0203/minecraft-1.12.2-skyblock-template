@@ -107,11 +107,13 @@ settings:
         maxNicknameLength: 16
         ForceSingleSession: true
         ForceSpawnLocOnJoin:
-            enabled: false
+            enabled: true
             worlds: 
             - world
             - world_nether
             - world_the_end
+            - ASkyBlock
+            - ASkyBlock_nether
         SaveQuitLocation: false
         AllowRestrictedUser: true
         AllowedRestrictedUser: 

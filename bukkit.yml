@@ -34,7 +34,7 @@ ticks-per:
   animal-spawns: 800
   monster-spawns: 1
   autosave: 6000
-aliases: now-in-commands.yml
+aliases: {}
 worlds:
   world:
     environment: NORMAL

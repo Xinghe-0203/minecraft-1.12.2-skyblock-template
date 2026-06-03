@@ -63,6 +63,7 @@ plugins/Essentials/usermap.csv
 
 # 插件运行数据
 plugins/SkinsRestorer/
+!plugins/SkinsRestorer/config.yml
 
 # ASkyBlock 运行时数据（玩家、岛屿等）
 plugins/ASkyBlock/players/

@@ -26,7 +26,7 @@
 | 项目 | 配置 |
 |------|------|
 | 服务端 | Paper 1.12.2 (git-Paper-1620) |
-| Java | **必须 Java 8 或 11**（不支持 17+） |
+| Java | **推荐 Java 8 或 11**（已测试 21 可用） |
 | 端口 | 25565 |
 | 最大玩家 | 100 |
 | 游戏模式 | 生存 |
@@ -132,7 +132,7 @@ MC/
 
 #### 1.1 安装 Java 8 或 11
 
-Paper 1.12.2 **仅支持 Java 8 或 11**，不支持 Java 17+（运行时会因模块系统报错）。
+Paper 1.12.2 官方**仅支持 Java 8 或 11**，但已在 Java 21 上测试通过且可稳定运行。
 
 **Windows：**
 1. 前往 [Adoptium](https://adoptium.net/) 下载 Java 8 (LTS) 或 Java 11 (LTS)
@@ -155,7 +155,7 @@ brew install openjdk@11
 java -version
 ```
 
-> 启动脚本（start.sh / start.bat）已内置 Java 版本检查，Java 17+ 会直接拒绝启动。
+> 启动脚本（start.sh / start.bat）已内置 Java 版本检查，Java 17+ 会给出警告但仍会启动。
 
 #### 1.2 端口开放
 
@@ -212,7 +212,7 @@ start.bat
 #### 3.3 启动脚本说明
 
 `start.sh` 与 `start.bat` 已内置：
-- Java 版本检查（拒绝 Java 17+）
+- Java 版本检查（Java 17+ 给出警告）
 - 内存设置 `-Xms2G -Xmx4G`（按需调整）
 - G1GC 调优参数（适合 4G 堆）
 
@@ -333,7 +333,7 @@ default（默认玩家）
   ├── essentials.balance
   ├── essentials.worth
   ├── essentials.sell
-  ├── quickshop.shop.create
+  ├── quickshop.create.*
   └── askyblock.island
 
 vip（VIP 玩家）
@@ -447,7 +447,7 @@ backup:
 A: 服务器是 1.12.2 版本，玩家需使用 Minecraft 1.12.2 客户端。
 
 ### Q: 启动时报 `UnsupportedOperationException: ... java.lang does not "opens java.lang"`
-A: 您正在使用 Java 17+。Paper 1.12.2 不支持 Java 17+，请安装 Java 8 或 11。
+A: 您正在使用 Java 17+。Paper 1.12.2 官方仅支持 Java 8/11，但已在 Java 21 上测试通过。出现异常时请降级到 Java 11。
 
 ### Q: 启动时报 `bind(..) failed: 地址已在使用`
 A: 端口 25565 被占用。先停止占用该端口的进程：

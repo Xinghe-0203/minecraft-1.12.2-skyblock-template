@@ -182,4 +182,4 @@ world-settings:
     disable-teleportation-suffocation-check: false
     enable-treasure-maps: true
     treasure-maps-return-already-discovered: false
-    per-player-mob-spawns: true
+    per-player-mob-spawns: false

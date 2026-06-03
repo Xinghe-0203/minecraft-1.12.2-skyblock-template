@@ -27,11 +27,11 @@ teleport-death-location: false
 # 通过 LuckPerms 权限节点控制每个组可设家数量：
 #   default 组: essentials.sethome.multiple.players = 10
 #   vip 组:    essentials.sethome.multiple.vip = 20
-#   staff 组:  essentials.sethome.multiple.staff = 30
+#   admin 组: essentials.sethome.multiple.admin = 30
 sethome-multiple:
   default: 10
   vip: 20
-  staff: 30
+  admin: 30
 
 # --- 经济设置 ---
 # 货币符号前加空格，避免显示拥挤（如 "500 星币"）

@@ -135,7 +135,7 @@ settings:
         ProtectInventoryBeforeLogIn: true
         DenyTabCompleteBeforeLogin: false
         displayOtherAccounts: false
-        spawnPriority: authme,essentials,cmi,multiverse,default
+        spawnPriority: authme,essentials,default
         maxLoginPerIp: 3
         maxJoinPerIp: 3
         noTeleport: false
@@ -207,8 +207,8 @@ Email:
     shutDownEmailAddress: your@mail.com
 
 Hooks:
-    multiverse: true
-    placeholderapi: true
+    multiverse: false
+    placeholderapi: false
     bungeecord: false
     velocity: false
     proxySendDelay: 10
@@ -297,7 +297,7 @@ BackupSystem:
     ActivateBackup: false
     OnServerStart: false
     OnServerStop: true
-    MysqlWindowsPath: C:\Program Files\MySQL\MySQL Server 5.1\
+    MysqlWindowsPath: ''
 
 Converter:
     CrazyLogin:

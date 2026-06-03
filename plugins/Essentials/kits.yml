@@ -10,9 +10,9 @@ kits:
     delay: 600
     items:
     - dpickaxe 1 efficiency:1 durability:1 fortune:1 name:&b&l星空钻镐 lore:&f效率I|耐久I|时运I
-    - dshovel 1 digspeed:3 name:&b&l星空钻铲 lore:&f效率III|挖掘神器
+    - dshovel 1 efficiency:3 name:&b&l星空钻铲 lore:&f效率III|挖掘神器
     - lhelm 1 color:255,255,255 name:&f&l白色礼帽 lore:&f绅士的|品味
-    - daxe:780 1 name:&b&l星空钻斧 lore:&f伐木利器
+    - daxe 1 name:&b&l星空钻斧 lore:&f伐木利器
     - /broadcast &b&l[星空岛] &e{USERNAME} &f领取了 &b&l钻石工具礼包&f！
   notch:
     delay: 6000
@@ -35,8 +35,8 @@ kits:
     delay: 600
     items:
     - dpickaxe 1 efficiency:1 durability:1 fortune:1 name:&b&l星空钻镐 lore:&f效率I|耐久I|时运I
-    - dshovel 1 digspeed:5 name:&b&l星空钻铲 lore:&f效率V|挖掘神器
+    - dshovel 1 efficiency:5 name:&b&l星空钻铲 lore:&f效率V|挖掘神器
     - lhelm 1 color:255,255,255 name:&f&l白色礼帽 lore:&f新居民|的礼物
-    - daxe:780 1 name:&b&l星空钻斧 lore:&f伐木利器
+    - daxe 1 name:&b&l星空钻斧 lore:&f伐木利器
     - cookedbeef 32 name:&6&l熟牛排 lore:&f补充体力|开荒必备
     - /broadcast &b&l[星空岛] &e{USERNAME} &f领取了 &a&l新手礼包&f，欢迎来到星空岛！

@@ -44,7 +44,7 @@ shop:
   
   # 【重点】开启悬浮物品
   # 注意：在 1.12.2 如果开启后出现刷物品 Bug，请将此项设为 false
-  display-items: true
+  display-items: false
   display-items-check-ticks: 100
 
   # 寻找商店距离
@@ -331,7 +331,7 @@ custom-items-name:
 - "PRISMARINE_CRYSTALS;海晶砂粒;海晶砂粒"
 - "RABBIT_FOOT;兔子脚;兔子脚"
 - "RABBIT_HIDE;兔子皮;兔子皮"
-- "DRAGONS_BREATH;龙息;龙息"                # 修复为正确的1.12.2名称
+- "DRAGON_BREATH;龙息;龙息"                # 修复为正确的1.12.2名称
 - "TOTEM;不死图腾;不死图腾"
 - "SHULKER_SHELL;潜影壳;潜影壳"
 - "IRON_NUGGET;铁粒;铁粒"

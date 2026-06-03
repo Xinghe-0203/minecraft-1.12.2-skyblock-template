@@ -36,8 +36,7 @@ player-unknown: '&4数据库中找不到该玩家'
 auto-login: '&2自动登录成功'
 
 # 玩家在首次进服时被自动注册（保护账户不被离线玩家抢注）
-auto-register: '&2已自动注册，密码：%password
-请尽快修改密码！'
+auto-register: "&2已自动注册，密码：%password\n请尽快修改密码！"
 
 # 玩家没有权限切换其他玩家的正版状态
 no-permission: '&4权限不足'
@@ -64,5 +63,4 @@ invalid-request: '&4无效的请求'
 not-started: '&c服务器尚未完全启动，请稍后再试'
 
 # 玩家执行 /premium 命令时的警告
-premium-warning: '&c&l警告：&6该命令&l只能&6由正版账户本人执行
-再次输入 &a/premium&6 以确认'
+premium-warning: "&c&l警告：&6该命令&l只能&6由正版账户本人执行\n再次输入 &a/premium&6 以确认"

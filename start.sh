@@ -30,4 +30,7 @@ java -Xms2G -Xmx4G \
      -XX:SurvivorRatio=32 \
      -XX:+PerfDisableSharedMem \
      -XX:MaxTenuringThreshold=1 \
+     --add-opens java.base/java.lang=ALL-UNNAMED \
+     --add-opens java.base/java.lang.reflect=ALL-UNNAMED \
+     --add-opens java.base/java.net=ALL-UNNAMED \
      -jar paper-1.12.2.jar nogui

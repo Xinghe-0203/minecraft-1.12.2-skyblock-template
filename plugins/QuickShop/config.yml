@@ -331,7 +331,7 @@ custom-items-name:
 - "PRISMARINE_CRYSTALS;海晶砂粒;海晶砂粒"
 - "RABBIT_FOOT;兔子脚;兔子脚"
 - "RABBIT_HIDE;兔子皮;兔子皮"
-- "DRAGON_BREATH;龙息;龙息"                # 修复为正确的1.12.2名称
+- "DRAGONS_BREATH;龙息;龙息"               # 1.12.2 材质名 DRAGONS_BREATH
 - "TOTEM;不死图腾;不死图腾"
 - "SHULKER_SHELL;潜影壳;潜影壳"
 - "IRON_NUGGET;铁粒;铁粒"

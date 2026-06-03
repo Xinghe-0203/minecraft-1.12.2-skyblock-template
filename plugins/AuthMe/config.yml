@@ -283,7 +283,7 @@ Security:
 
 Plugin:
     updates:
-        checkForUpdates: true
+        checkForUpdates: false
     banners:
         showBanners: true
 

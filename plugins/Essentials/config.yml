@@ -10,6 +10,7 @@ nickname-prefix: '~'
 max-nick-length: 15
 change-displayname: true
 hide-offline-players: false
+update-check: false
 
 # --- 传送设置 ---
 teleport-safety: true

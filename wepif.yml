@@ -25,6 +25,13 @@ ignore-nijiperms-bridges: true
 resolvers:
     enabled:
     - PluginPermissionsResolver
+    disabled:
+    - PermissionsExResolver
+    - bPermissionsResolver
+    - GroupManagerResolver
+    - NijiPermissionsResolver
+    - DinnerPermsResolver
+    - FlatFilePermissionsResolver
 permissions:
     groups:
         default:

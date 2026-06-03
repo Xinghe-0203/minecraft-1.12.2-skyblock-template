@@ -124,13 +124,13 @@ world-settings:
     keep-spawn-loaded-range: 8
     auto-save-interval: -1
     nether-ceiling-void-damage: false
-    allow-non-player-entities-on-scoreboards: false
     frosted-ice:
       enabled: true
       delay:
         min: 20
         max: 40
     container-update-tick-rate: 2
+    allow-non-player-entities-on-scoreboards: false
     parrots-are-unaffected-by-player-movement: false
     disable-explosion-knockback: false
     elytra-hit-wall-damage: true

@@ -123,7 +123,7 @@ settings:
         banUnsafedIP: false
         kickNonRegistered: false
         kickOnWrongPassword: false
-        teleportUnAuthedToSpawn: false
+        teleportUnAuthedToSpawn: true
         
         # 允许未登录玩家在 0 半径内移动（即登录界面附近）
         allowMovement: true

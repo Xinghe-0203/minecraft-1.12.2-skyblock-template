@@ -17,3 +17,5 @@ aliases:
   - version $1-
   sellall:
   - qs sellall
+  spawn:
+  - essentials:spawn

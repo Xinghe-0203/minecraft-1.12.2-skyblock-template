@@ -30,7 +30,6 @@ plugins/Essentials/warps/
 # 数据库文件（含玩家敏感数据）
 plugins/AuthMe/authme.db
 plugins/AuthMe/authme.log
-plugins/FastLogin/FastLogin.db
 plugins/QuickShop/shops.db
 
 # 运行时生成的文件

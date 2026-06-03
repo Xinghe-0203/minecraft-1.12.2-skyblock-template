@@ -111,11 +111,11 @@ world-settings:
       entity: 80
     squid-spawn-range:
       min: 45
+    view-distance: 10
     item-despawn-rate: 6000
     merge-radius:
       item: 4
       exp: 6
-    view-distance: 10
     arrow-despawn-rate: 1200
     enable-zombie-pigmen-portal-spawns: true
     wither-spawn-sound-radius: 0

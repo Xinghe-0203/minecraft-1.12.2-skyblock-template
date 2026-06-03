@@ -109,3 +109,4 @@ server-icon.png
 .idea/
 *.iml
 .vscode/
+.opencode.md

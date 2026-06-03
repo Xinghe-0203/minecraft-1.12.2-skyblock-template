@@ -17,7 +17,7 @@
 - **权限管理** — LuckPerms 权限组系统，支持网页编辑器
 - **新手友好** — 自动发放新手礼包，传送系统完善
 - **账号安全** — AuthMe 强制注册 + SHA256 密码哈希
-- **离线修复** — FastLogin 自动识别正版玩家
+- **离线修复** — FastLogin 支持正版玩家手动切换（autoRegister 已关闭，由 AuthMe 接管认证）
 
 ---
 
@@ -53,9 +53,9 @@
 | Vault | — | 经济/权限 API 桥接 |
 | ASkyBlock | 3.0.9.4 | 空岛世界与挑战系统 |
 | AuthMe | 5.7.0-FORK | 账号注册与登录（SHA256 哈希） |
-| FastLogin | — | 正版玩家自动登录 |
+| FastLogin | — | 正版玩家手动切换（autoRegister 关闭，AuthMe 接管认证） |
 | SkinsRestorer | — | 离线服玩家皮肤恢复（中文语言） |
-| ProtocolLib | 5.3.0 | 网络协议支持库 |
+| ProtocolLib | 4.8.0 | 网络协议支持库（兼容 FastLogin 1.10） |
 
 ---
 
@@ -532,5 +532,5 @@ settings:
 - [WorldGuard](https://enginehub.org/worldguard/) — 领地保护
 - [ASkyBlock](https://www.spigotmc.org/resources/askyblock.1220/) — 空岛插件
 - [AuthMe](https://github.com/AuthMe/AuthMeReloaded) — 账号安全
-- [FastLogin](https://www.spigotmc.org/resources/fastlogin.14153/) — 正版自动登录
+- [FastLogin](https://www.spigotmc.org/resources/fastlogin.14153/) — 正版玩家手动切换（AuthMe 接管认证）
 - [SkinsRestorer](https://skinsrestorer.net/) — 皮肤恢复

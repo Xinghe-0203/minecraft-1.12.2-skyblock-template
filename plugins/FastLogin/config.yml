@@ -19,7 +19,7 @@
 # the player just disconnect and sees the message: 'bad login' or 'invalid session'
 # There is no way to change this message
 # For more information: https://github.com/games647/FastLogin#why-do-players-have-to-invoke-a-command
-autoRegister: true
+autoRegister: false
 
 # This is extra configuration option to the feature above. If we request a premium authentication from a player who
 # isn't actual premium but used a premium username, the player will disconnect with the reason "invalid session" or
@@ -113,7 +113,7 @@ nameChangeCheck: false
 #
 # If you want to use skins for your cracked player, you need an additional plugin like
 # ChangeSkin, SkinRestorer, ...
-forwardSkin: true
+forwardSkin: false
 
 # Displays a warning message that this message SHOULD only be invoked by
 # users who actually are the owner of this account. So not by cracked players
@@ -155,7 +155,7 @@ auto-register-unknown: false
 #
 # This can be used as 2Factor authentication for better security of your accounts. A hacker then needs both passwords.
 # The password of your minecraft and the password to login in with your auth plugin
-autoLogin: true
+autoLogin: false
 
 # Database configuration
 # Recommended is the use of MariaDB (a better version of MySQL)

@@ -49,6 +49,7 @@ plugins/SkinsRestorer/skins/
 
 # 世界数据（包括主世界、下界、末地、空岛）
 /world/
+!/world/level.dat
 /world_nether/
 /world_the_end/
 /ASkyBlock/

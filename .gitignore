@@ -23,7 +23,6 @@ plugins/Essentials/cache/
 plugins/Essentials/userdata/
 plugins/Essentials/custom_items.yml
 plugins/Essentials/items.csv
-plugins/Essentials/worth.yml
 plugins/Essentials/spawn.yml
 plugins/Essentials/upgrades-done.yml
 plugins/Essentials/warps/
@@ -73,6 +72,7 @@ plugins/ASkyBlock/islands.yml
 plugins/ASkyBlock/name-uuid.txt
 plugins/ASkyBlock/resettimers.yml
 plugins/ASkyBlock/topten.yml
+plugins/ASkyBlock/messages.yml
 plugins/ASkyBlock/warps.yml
 
 # 管理员与封禁数据

@@ -87,7 +87,7 @@ permissions.yml
 cache/
 
 # 服务端 Jar（应单独下载，不进版本控制）
-paper-*.jar
+
 
 # WorldGuard 世界级别配置（运行时生成）
 plugins/WorldGuard/worlds/

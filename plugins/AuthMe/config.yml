@@ -107,7 +107,7 @@ settings:
         maxNicknameLength: 16
         ForceSingleSession: true
         ForceSpawnLocOnJoin:
-            enabled: true
+            enabled: false
             worlds: 
             - world
             - world_nether
@@ -125,19 +125,19 @@ settings:
         banUnsafedIP: false
         kickNonRegistered: false
         kickOnWrongPassword: false
-        teleportUnAuthedToSpawn: true
+        teleportUnAuthedToSpawn: false
         
         # 允许未登录玩家在 0 半径内移动（即登录界面附近）
         allowMovement: true
         timeout: 360
         allowedNicknameCharacters: '[a-zA-Z0-9_]*'
-        # 允许未登录玩家在 3 格半径内移动（避免登录提示不可见）
-        allowedMovementRadius: 3
+        # [修改] 允许未登录玩家自由移动
+        allowedMovementRadius: 999999
         # [安全修改] 登录前保护背包
         ProtectInventoryBeforeLogIn: true
         DenyTabCompleteBeforeLogin: false
         displayOtherAccounts: false
-        spawnPriority: essentials,default
+        spawnPriority: authme
         maxLoginPerIp: 3
         maxJoinPerIp: 3
         noTeleport: false
@@ -266,9 +266,9 @@ Security:
     tempban:
         # [安全加固] 启用临时封禁防爆破
         enableTempban: true
-        maxLoginTries: 8
-        tempbanLength: 480
-        minutesBeforeCounterReset: 480
+        maxLoginTries: 10
+        tempbanLength: 60
+        minutesBeforeCounterReset: 60
         customCommand: ''
     recoveryCode:
         length: 8

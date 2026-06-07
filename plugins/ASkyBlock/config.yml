@@ -158,10 +158,10 @@ general:
   # 是否创建下界。如果为 false，将不会生成下界世界，也无法进入下界。其他插件可能仍会启用传送门。
   # 注意：某些挑战在没有下界时无法完成。
   # 标准下界中，所有玩家到达同一传送门，进入传送门会返回各自岛屿。
-  createnether: false
+  createnether: true
 
   # 是否使用新式岛屿风格下界。false 则为标准下界。
-  newnether: true
+  newnether: false
   # 下界中是否生成树木（使用沙砾和萤石）
   nethertrees: true
   # 是否生成下界顶部。如果造成卡顿，可设为 false。

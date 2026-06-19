@@ -20,7 +20,7 @@ default:
     2:
       material: EXP_BOTTLE
       description: '&b&l[C] &a岛屿挑战|&7完成挑战，获得丰厚奖励'
-      command: '[island] c'
+      command: 'c'
       nextsection: ''
     3:
       material: EMERALD

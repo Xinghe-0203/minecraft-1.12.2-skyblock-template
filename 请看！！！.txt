@@ -34,6 +34,7 @@
 /lp group default permission set essentials.kit.tools true
 /lp group default permission set essentials.signs.use.* true
 /lp group default permission set essentials.signs.create.* true
+/lp group default permission set essentials.spawn true
 
 # ASkyBlock 空岛功能
 /lp group default permission set askyblock.island.create true

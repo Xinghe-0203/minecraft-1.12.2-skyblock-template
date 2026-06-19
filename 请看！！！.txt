@@ -62,6 +62,25 @@
 /lp group default permission set askyblock.island.teamchat true
 /lp group default permission set askyblock.craft.enderchest true
 
+# ===== 基础商店权限 =====
+/lp group default permission set quickshop.create true
+/lp group default permission set quickshop.create.buy true
+/lp group default permission set quickshop.create.sell true
+/lp group default permission set quickshop.use true
+/lp group default permission set quickshop.sell true
+/lp group default permission set quickshop.buy true
+
+# ===== sellall 功能权限 =====
+/lp group default permission set quickshop.sellall true
+
+# ===== 其他实用权限 =====
+/lp group default permission set quickshop.find true
+/lp group default permission set quickshop.price true
+/lp group default permission set quickshop.info true
+/lp group default permission set quickshop.remove.self true
+
+# ===== 同步权限 =====
+/lp sync
 
 二、游戏规则设置
 ----------------------------------------
